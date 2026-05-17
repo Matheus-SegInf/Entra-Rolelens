@@ -144,11 +144,11 @@ jobs:
           git rebase -X ours origin/master || {
             git rebase --abort
             echo "Rebase failed — force-pushing since pipeline data is authoritative"
-            git remote set-url origin "https://x-access-token:${GH_PUSH_TOKEN}@github.com/arusso-aboutcloud/Entra-Rolelens.git"
+            git config "http.https://github.com/.extraheader" "AUTHORIZATION: basic $(echo -n "x-access-token:${GH_PUSH_TOKEN}" | base64)"
           git push --force-with-lease origin master
             exit 0
           }
-          git remote set-url origin "https://x-access-token:${GH_PUSH_TOKEN}@github.com/arusso-aboutcloud/Entra-Rolelens.git"
+          git config "http.https://github.com/.extraheader" "AUTHORIZATION: basic $(echo -n "x-access-token:${GH_PUSH_TOKEN}" | base64)"
           git push origin master
         env:
           GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
