@@ -137,10 +137,11 @@ jobs:
             echo "No dashboard changes to commit."
           else
             git commit -m "data: update security dashboard [skip ci]"
-            git push origin master
+            git remote set-url origin "https://x-access-token:${GH_PUSH_TOKEN}@github.com/arusso-aboutcloud/Entra-Rolelens.git"
+          git push origin master
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
 
   # ── SBOM generation ──
   sbom:
