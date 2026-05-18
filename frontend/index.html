@@ -204,6 +204,16 @@
     .mode { display: none; padding: 44px 0 64px; }
     .mode.active { display: block; }
 
+    /* ── Hero glow animations ──────────────────────────────────────── */
+    @keyframes hero-title-glow {
+      0%, 100% { text-shadow: 0 0 8px rgba(226,232,240,0.95), 0 0 22px rgba(226,232,240,0.65), 0 0 50px rgba(226,232,240,0.3); }
+      50%       { text-shadow: 0 0 4px rgba(226,232,240,0.45), 0 0 10px rgba(226,232,240,0.2),  0 0 22px rgba(226,232,240,0.08); }
+    }
+    @keyframes hero-tagline-glow {
+      0%, 100% { text-shadow: 0 0 8px rgba(0,229,163,0.9),   0 0 22px rgba(0,229,163,0.55), 0 0 50px rgba(0,229,163,0.25); }
+      50%       { text-shadow: 0 0 4px rgba(0,229,163,0.4),   0 0 10px rgba(0,229,163,0.15), 0 0 20px rgba(0,229,163,0.05); }
+    }
+
     /* ── Hero ───────────────────────────────────────────────────────── */
     .hero-logo {
       display: block;
@@ -220,6 +230,7 @@
       color: var(--text);
       margin-bottom: 12px;
       line-height: 1.25;
+      animation: hero-title-glow 3s ease-in-out infinite;
     }
 
     .hero-tagline {
@@ -231,6 +242,7 @@
       letter-spacing: -0.01em;
       margin-top: -8px;
       margin-bottom: 24px;
+      animation: hero-tagline-glow 3s ease-in-out infinite 0.4s;
     }
 
     /* ── Search input ───────────────────────────────────────────────── */
