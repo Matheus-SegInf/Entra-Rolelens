@@ -75,7 +75,7 @@
   {
     "id": "db506228-d27e-4b7d-95e5-295956d6615f",
     "displayName": "Agent ID Administrator",
-    "description": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent service principals, agent identities, and agentic users.",
+    "description": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent identity blueprint principals, agent identities, and agentic users.",
     "isBuiltIn": true,
     "isPrivileged": true,
     "permissions": [
@@ -1643,7 +1643,7 @@
     "displayName": "Identity Governance Administrator",
     "description": "Manage access using Microsoft Entra ID for identity governance scenarios.",
     "isBuiltIn": true,
-    "isPrivileged": false,
+    "isPrivileged": true,
     "permissions": [
       "microsoft.directory/accessReviews/allProperties/allTasks",
       "microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T04:58:53.509361+00:00",
+  "generated_at": "2026-05-27T05:11:47.853009+00:00",
   "role_count": 143,
   "task_count": 237,
   "shadow_role_count": 11,
@@ -2553,7 +2553,7 @@
       "displayName": "Identity Governance Administrator",
       "description": "Manage access using Microsoft Entra ID for identity governance scenarios.",
       "isBuiltIn": true,
-      "isPrivileged": false,
+      "isPrivileged": true,
       "permissions": [
         "microsoft.directory/accessReviews/allProperties/allTasks",
         "microsoft.directory/accessReviews/definitions.applications/allProperties/allTasks",
@@ -3317,7 +3317,7 @@
     {
       "id": "db506228-d27e-4b7d-95e5-295956d6615f",
       "displayName": "Agent ID Administrator",
-      "description": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent service principals, agent identities, and agentic users.",
+      "description": "Manage all aspects of agents in a tenant including identity lifecycle operations for agent blueprints, agent identity blueprint principals, agent identities, and agentic users.",
       "isBuiltIn": true,
       "isPrivileged": true,
       "permissions": [
@@ -4301,7 +4301,7 @@
       "alt_roles": [],
       "source_url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-by-task",
       "role_id": "45d8d3c5-c802-45c6-b32a-1d70b5e1e86e",
-      "is_privileged": false,
+      "is_privileged": true,
       "out_of_scope": null
     },
     {
@@ -5941,7 +5941,7 @@
       "source_url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference",
       "synthetic": true,
       "role_id": "45d8d3c5-c802-45c6-b32a-1d70b5e1e86e",
-      "is_privileged": false,
+      "is_privileged": true,
       "out_of_scope": null
     },
     {
