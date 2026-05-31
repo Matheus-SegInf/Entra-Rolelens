@@ -55,16 +55,8 @@ The shadow role count is logged in every pipeline run and visible in the pipelin
 > Auto-generated from the nightly pipeline · Last updated by GitHub Actions
 
 <!-- WHATS_NEW_START -->
-- ✅ **AI Reader** — added (2026-04-30)
-- ✅ **Customer Delegated Admin Relationship Administrator** — added (2026-04-30)
-- 🔄 **Agent ID Administrator** — modified (2026-04-30)
-- 🔄 **Agent ID Developer** — modified (2026-04-30)
-- 🔄 **Azure DevOps Administrator** — modified (2026-04-30)
-- 🔄 **Cloud App Security Administrator** — modified (2026-04-30)
-- 🔄 **Fabric Administrator** — modified (2026-04-30)
-- 🔄 **Global Administrator** — modified (2026-04-30)
-- 🔄 **Hybrid Identity Administrator** — modified (2026-04-30)
-- 🔄 **Insights Business Leader** — modified (2026-04-30)
+- 🔄 **Agent ID Administrator** — modified (2026-05-27)
+- 🔄 **Identity Governance Administrator** — modified (2026-05-27)
 <!-- WHATS_NEW_END -->
 
 ---
