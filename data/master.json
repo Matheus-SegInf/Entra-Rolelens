@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-04T05:52:34.767186+00:00",
-  "role_count": 143,
+  "generated_at": "2026-06-05T05:12:15.895024+00:00",
+  "role_count": 144,
   "task_count": 237,
-  "shadow_role_count": 11,
+  "shadow_role_count": 12,
   "roles": [
     {
       "id": "62e90394-69f5-4237-9190-012177145e10",
@@ -1940,6 +1940,10 @@
         "microsoft.directory/privilegedIdentityManagement/allProperties/read",
         "microsoft.directory/provisioningLogs/allProperties/read",
         "microsoft.directory/signInReports/allProperties/read",
+        "microsoft.directory/users/disable",
+        "microsoft.directory/users/enable",
+        "microsoft.directory/users/invalidateAllRefreshTokens",
+        "microsoft.directory/users/password/update",
         "microsoft.intune/allEntities/read",
         "microsoft.office365.securityComplianceCenter/allEntities/allTasks",
         "microsoft.office365.supportTickets/allEntities/allTasks",
@@ -3571,6 +3575,17 @@
         "microsoft.office365.webPortal/allEntities/standard/read"
       ],
       "isShadowRole": false
+    },
+    {
+      "id": "d35481f7-cda1-4fa2-8344-5a21f7f3724d",
+      "displayName": "Entra Customer Lockbox Approver",
+      "description": "Can approve customer lockbox requests for accessing customer data in Entra ID.",
+      "isBuiltIn": true,
+      "isPrivileged": false,
+      "permissions": [
+        "microsoft.directory/lockbox/requests/update"
+      ],
+      "isShadowRole": true
     }
   ],
   "tasks": [
