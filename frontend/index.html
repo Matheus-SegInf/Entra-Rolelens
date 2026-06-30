@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Entra RoleLens — Minimum privilege for every Entra task</title>
-  <meta name="description" content="Find the minimum built-in Microsoft Entra ID role for any admin task. Free, no login, updated daily from Microsoft's official documentation." />
+  <meta name="description"
+    content="Find the minimum built-in Microsoft Entra ID role for any admin task. Free, no login, updated daily from Microsoft's official documentation." />
   <meta property="og:title" content="Entra RoleLens — Minimum privilege for every Entra task" />
-  <meta property="og:description" content="Type any Entra admin task, get the minimum built-in role. Role diff, 130 roles, 211 tasks. Free community tool by aboutcloud.io" />
+  <meta property="og:description"
+    content="Type any Entra admin task, get the minimum built-in role. Role diff, 130 roles, 211 tasks. Free community tool by aboutcloud.io" />
   <meta property="og:url" content="https://entrarolelens.aboutcloud.io" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/png" href="assets/logo_200x200_white.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=Chakra+Petch:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     /* ── Reset & tokens ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --bg:        #07080D;
-      --surface:   #0D1018;
-      --surface2:  #111620;
-      --border:    #1C2438;
-      --accent:    #00E5A3;
-      --accent-dim:#007A57;
-      --text:      #E2E8F0;
-      --muted:     #64748B;
-      --danger:    #F87171;
-      --warn:      #FBBF24;
-      --only-a:    #F87171;
-      --only-b:    #34D399;
-      --shared:    #94A3B8;
+      --bg: #07080D;
+      --surface: #0D1018;
+      --surface2: #111620;
+      --border: #1C2438;
+      --accent: #00E5A3;
+      --accent-dim: #007A57;
+      --text: #E2E8F0;
+      --muted: #64748B;
+      --danger: #F87171;
+      --warn: #FBBF24;
+      --only-a: #F87171;
+      --only-b: #34D399;
+      --shared: #94A3B8;
       --font-head: 'Syne', sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
       --font-body: 'DM Sans', sans-serif;
-      --radius:    8px;
+      --radius: 8px;
       --radius-lg: 12px;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -102,8 +115,13 @@
     }
 
     @media (max-width: 640px) {
-      .header-logo { height: 48px; }
-      .header-brand { gap: 12px; }
+      .header-logo {
+        height: 48px;
+      }
+
+      .header-brand {
+        gap: 12px;
+      }
     }
 
     .logo {
@@ -114,8 +132,14 @@
       text-decoration: none;
       color: var(--text);
     }
-    .logo span { color: var(--accent); }
-    .logo .entra-part { color: #0078D4; }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .logo .entra-part {
+      color: #0078D4;
+    }
 
     .header-right {
       display: flex;
@@ -133,7 +157,11 @@
       border-radius: 20px;
       white-space: nowrap;
     }
-    .last-updated.fresh { color: var(--accent); border-color: var(--accent-dim); }
+
+    .last-updated.fresh {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+    }
 
     .gh-link {
       color: var(--muted);
@@ -142,8 +170,15 @@
       align-items: center;
       transition: color 0.15s;
     }
-    .gh-link:hover { color: var(--text); }
-    .gh-link svg { width: 20px; height: 20px; }
+
+    .gh-link:hover {
+      color: var(--text);
+    }
+
+    .gh-link svg {
+      width: 20px;
+      height: 20px;
+    }
 
     .ac-brand {
       display: flex;
@@ -156,8 +191,16 @@
       letter-spacing: 0.04em;
       transition: color 0.15s;
     }
-    .ac-brand:hover { color: var(--text); }
-    .ac-brand img { height: 38px; width: 38px; opacity: 0.85; }
+
+    .ac-brand:hover {
+      color: var(--text);
+    }
+
+    .ac-brand img {
+      height: 38px;
+      width: 38px;
+      opacity: 0.85;
+    }
 
     .tagline {
       font-family: var(--font-mono);
@@ -172,6 +215,7 @@
       text-align: center;
       margin-top: 40px;
     }
+
     .tab-toggle {
       display: inline-flex;
       background: var(--surface);
@@ -179,6 +223,7 @@
       border-radius: 100px;
       padding: 4px;
     }
+
     .tab-pill {
       font-family: var(--font-mono);
       font-size: 14px;
@@ -193,7 +238,11 @@
       white-space: nowrap;
       letter-spacing: 0.03em;
     }
-    .tab-pill:hover { color: var(--text); }
+
+    .tab-pill:hover {
+      color: var(--text);
+    }
+
     .tab-pill.active {
       background: var(--accent);
       color: #07080D;
@@ -201,17 +250,38 @@
     }
 
     /* ── Mode panels ────────────────────────────────────────────────── */
-    .mode { display: none; padding: 44px 0 64px; }
-    .mode.active { display: block; }
+    .mode {
+      display: none;
+      padding: 44px 0 64px;
+    }
+
+    .mode.active {
+      display: block;
+    }
 
     /* ── Hero glow animations ──────────────────────────────────────── */
     @keyframes hero-title-glow {
-      0%, 100% { text-shadow: 0 0 8px rgba(226,232,240,0.95), 0 0 22px rgba(226,232,240,0.65), 0 0 50px rgba(226,232,240,0.3); }
-      50%       { text-shadow: 0 0 4px rgba(226,232,240,0.45), 0 0 10px rgba(226,232,240,0.2),  0 0 22px rgba(226,232,240,0.08); }
+
+      0%,
+      100% {
+        text-shadow: 0 0 8px rgba(226, 232, 240, 0.95), 0 0 22px rgba(226, 232, 240, 0.65), 0 0 50px rgba(226, 232, 240, 0.3);
+      }
+
+      50% {
+        text-shadow: 0 0 4px rgba(226, 232, 240, 0.45), 0 0 10px rgba(226, 232, 240, 0.2), 0 0 22px rgba(226, 232, 240, 0.08);
+      }
     }
+
     @keyframes hero-tagline-glow {
-      0%, 100% { text-shadow: 0 0 8px rgba(0,229,163,0.9),   0 0 22px rgba(0,229,163,0.55), 0 0 50px rgba(0,229,163,0.25); }
-      50%       { text-shadow: 0 0 4px rgba(0,229,163,0.4),   0 0 10px rgba(0,229,163,0.15), 0 0 20px rgba(0,229,163,0.05); }
+
+      0%,
+      100% {
+        text-shadow: 0 0 8px rgba(0, 229, 163, 0.9), 0 0 22px rgba(0, 229, 163, 0.55), 0 0 50px rgba(0, 229, 163, 0.25);
+      }
+
+      50% {
+        text-shadow: 0 0 4px rgba(0, 229, 163, 0.4), 0 0 10px rgba(0, 229, 163, 0.15), 0 0 20px rgba(0, 229, 163, 0.05);
+      }
     }
 
     /* ── Hero ───────────────────────────────────────────────────────── */
@@ -258,7 +328,11 @@
       margin-bottom: 24px;
       min-height: 18px;
     }
-    .search-hint span, .search-hint .hint-accent { color: var(--accent); }
+
+    .search-hint span,
+    .search-hint .hint-accent {
+      color: var(--accent);
+    }
 
     .search-input {
       width: 100%;
@@ -272,8 +346,14 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .search-input::placeholder { color: var(--muted); }
-    .search-input:focus { border-color: var(--accent); }
+
+    .search-input::placeholder {
+      color: var(--muted);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+    }
 
     .search-icon {
       position: absolute;
@@ -285,7 +365,12 @@
     }
 
     /* ── Results / states ───────────────────────────────────────────── */
-    #search-results { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+    #search-results {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+    }
 
     .state-msg {
       font-family: var(--font-mono);
@@ -294,8 +379,15 @@
       padding: 32px 0;
       text-align: center;
     }
-    .state-msg a { color: var(--accent); text-decoration: none; }
-    .state-msg a:hover { text-decoration: underline; }
+
+    .state-msg a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .state-msg a:hover {
+      text-decoration: underline;
+    }
 
     /* Loading skeleton */
     .skeleton-card {
@@ -305,19 +397,36 @@
       padding: 18px 20px;
       animation: pulse 1.4s ease-in-out infinite;
     }
+
     .skel-line {
       height: 10px;
       background: var(--border);
       border-radius: 4px;
       margin-bottom: 10px;
     }
-    .skel-line.w60 { width: 60%; }
-    .skel-line.w80 { width: 80%; }
-    .skel-line.w40 { width: 40%; }
+
+    .skel-line.w60 {
+      width: 60%;
+    }
+
+    .skel-line.w80 {
+      width: 80%;
+    }
+
+    .skel-line.w40 {
+      width: 40%;
+    }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.45; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.45;
+      }
     }
 
     /* ── Result card component ─────────────────────────────────────── */
@@ -329,8 +438,14 @@
       transition: border-color 0.15s;
       container-type: inline-size;
     }
-    .result-card:hover { border-color: #2D3F60; }
-    .result-card--top  { border-top: 2px solid rgba(0,229,163,0.35); }
+
+    .result-card:hover {
+      border-color: #2D3F60;
+    }
+
+    .result-card--top {
+      border-top: 2px solid rgba(0, 229, 163, 0.35);
+    }
 
     .card-top {
       display: flex;
@@ -360,8 +475,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--danger);
-      background: rgba(248,113,113,0.10);
-      border: 1px solid rgba(248,113,113,0.35);
+      background: rgba(248, 113, 113, 0.10);
+      border: 1px solid rgba(248, 113, 113, 0.35);
       padding: 3px 10px;
       border-radius: 4px;
     }
@@ -371,8 +486,8 @@
       font-size: 10px;
       font-weight: 500;
       color: var(--accent);
-      background: rgba(0,229,163,0.10);
-      border: 1px solid rgba(0,229,163,0.35);
+      background: rgba(0, 229, 163, 0.10);
+      border: 1px solid rgba(0, 229, 163, 0.35);
       padding: 2px 8px;
       border-radius: 4px;
     }
@@ -406,15 +521,17 @@
       font-size: 12px;
       color: var(--accent);
       opacity: 0.85;
-      background: rgba(0,229,163,0.06);
-      border: 1px solid rgba(0,229,163,0.18);
+      background: rgba(0, 229, 163, 0.06);
+      border: 1px solid rgba(0, 229, 163, 0.18);
       padding: 3px 12px;
       border-radius: 20px;
       margin-bottom: 16px;
       line-height: 1.5;
     }
 
-    .card-section { margin-bottom: 16px; }
+    .card-section {
+      margin-bottom: 16px;
+    }
 
     .card-section-label {
       font-family: var(--font-mono);
@@ -444,8 +561,15 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .perm-path-ns     { color: var(--muted); }
-    .perm-path-action { color: var(--accent); opacity: 0.75; }
+
+    .perm-path-ns {
+      color: var(--muted);
+    }
+
+    .perm-path-action {
+      color: var(--accent);
+      opacity: 0.75;
+    }
 
     .card-perm-viewall {
       display: inline-block;
@@ -455,7 +579,10 @@
       color: var(--muted);
       text-decoration: none;
     }
-    .card-perm-viewall:hover { color: var(--accent); }
+
+    .card-perm-viewall:hover {
+      color: var(--accent);
+    }
 
     .card-alts-list {
       display: flex;
@@ -472,12 +599,14 @@
       border: 1px solid var(--border);
       border-radius: 6px;
     }
+
     .alt-name {
       font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 500;
       color: var(--text);
     }
+
     .alt-desc {
       font-size: 12px;
       color: var(--muted);
@@ -490,6 +619,7 @@
       border-radius: 6px;
       overflow: hidden;
     }
+
     .card-snippet-header {
       display: flex;
       align-items: center;
@@ -498,6 +628,7 @@
       border-bottom: 1px solid var(--border);
       padding: 6px 12px;
     }
+
     .card-snippet-label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -506,6 +637,7 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+
     .card-snippet-code {
       background: #0A0C12;
       padding: 12px 16px;
@@ -517,7 +649,12 @@
       white-space: pre;
       margin: 0;
     }
-    .snip-comment { color: var(--muted); font-style: italic; opacity: 0.65; }
+
+    .snip-comment {
+      color: var(--muted);
+      font-style: italic;
+      opacity: 0.65;
+    }
 
     .copy-btn {
       font-family: var(--font-mono);
@@ -532,7 +669,11 @@
       cursor: pointer;
       transition: color 0.15s, border-color 0.15s;
     }
-    .copy-btn:hover { color: var(--accent); border-color: rgba(0,229,163,0.4); }
+
+    .copy-btn:hover {
+      color: var(--accent);
+      border-color: rgba(0, 229, 163, 0.4);
+    }
 
     .card-footer {
       display: flex;
@@ -541,7 +682,13 @@
       flex-wrap: wrap;
       margin-top: 4px;
     }
-    .card-footer-badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+    .card-footer-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
     .source-link {
       margin-left: auto;
@@ -550,7 +697,10 @@
       text-decoration: none;
       white-space: nowrap;
     }
-    .source-link:hover { color: var(--accent); }
+
+    .source-link:hover {
+      color: var(--accent);
+    }
 
     .card-expand-row {
       display: flex;
@@ -560,6 +710,7 @@
       flex-wrap: wrap;
       margin: 8px 0 4px;
     }
+
     .card-meta {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -570,6 +721,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .card-expand-btn {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -577,22 +729,38 @@
       text-transform: uppercase;
       color: var(--accent);
       background: transparent;
-      border: 1px solid rgba(0,229,163,0.30);
+      border: 1px solid rgba(0, 229, 163, 0.30);
       padding: 4px 10px;
       border-radius: 4px;
       cursor: pointer;
       white-space: nowrap;
       transition: background 0.15s;
     }
-    .card-expand-btn:hover { background: rgba(0,229,163,0.08); }
 
-    .card-details[hidden] { display: none; }
-    .card-details { margin-top: 12px; }
+    .card-expand-btn:hover {
+      background: rgba(0, 229, 163, 0.08);
+    }
+
+    .card-details[hidden] {
+      display: none;
+    }
+
+    .card-details {
+      margin-top: 12px;
+    }
 
     @container (max-width: 480px) {
-      .card-role-name    { font-size: 15px; }
-      .card-snippet-code { font-size: 11px; }
-      .card-perm-item    { font-size: 11px; }
+      .card-role-name {
+        font-size: 15px;
+      }
+
+      .card-snippet-code {
+        font-size: 11px;
+      }
+
+      .card-perm-item {
+        font-size: 11px;
+      }
     }
 
     /* ── Role Diff mode ─────────────────────────────────────────────── */
@@ -602,7 +770,12 @@
       gap: 16px;
       margin-bottom: 20px;
     }
-    @media (max-width: 560px) { .diff-inputs { grid-template-columns: 1fr; } }
+
+    @media (max-width: 560px) {
+      .diff-inputs {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .autocomplete-wrap {
       position: relative;
@@ -630,13 +803,20 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .diff-input::placeholder { color: var(--muted); }
-    .diff-input:focus { border-color: var(--accent); }
+
+    .diff-input::placeholder {
+      color: var(--muted);
+    }
+
+    .diff-input:focus {
+      border-color: var(--accent);
+    }
 
     .autocomplete-list {
       position: absolute;
       top: calc(100% + 4px);
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       background: var(--surface2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -645,7 +825,10 @@
       z-index: 50;
       display: none;
     }
-    .autocomplete-list.open { display: block; }
+
+    .autocomplete-list.open {
+      display: block;
+    }
 
     .ac-item {
       padding: 11px 16px;
@@ -657,8 +840,16 @@
       gap: 8px;
       transition: background 0.1s;
     }
-    .ac-item:hover, .ac-item.selected { background: #111620; }
-    .ac-item-name { flex: 1; }
+
+    .ac-item:hover,
+    .ac-item.selected {
+      background: #111620;
+    }
+
+    .ac-item-name {
+      flex: 1;
+    }
+
     .ac-priv {
       font-family: var(--font-mono);
       font-size: 9px;
@@ -684,12 +875,24 @@
       transition: opacity 0.15s;
       margin-bottom: 32px;
     }
-    .compare-btn:hover { opacity: 0.88; }
-    .compare-btn:disabled { opacity: 0.4; cursor: default; }
+
+    .compare-btn:hover {
+      opacity: 0.88;
+    }
+
+    .compare-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
 
     /* ── Diff results ───────────────────────────────────────────────── */
-    #diff-results { display: none; }
-    #diff-results.visible { display: block; }
+    #diff-results {
+      display: none;
+    }
+
+    #diff-results.visible {
+      display: block;
+    }
 
     .diff-header {
       display: grid;
@@ -697,7 +900,12 @@
       gap: 12px;
       margin-bottom: 16px;
     }
-    @media (max-width: 640px) { .diff-header { grid-template-columns: 1fr; } }
+
+    @media (max-width: 640px) {
+      .diff-header {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .diff-col-header {
       background: var(--surface);
@@ -706,6 +914,7 @@
       padding: 14px 16px;
       text-align: center;
     }
+
     .diff-col-header .col-label {
       font-family: var(--font-mono);
       font-size: 12px;
@@ -713,15 +922,26 @@
       text-transform: uppercase;
       margin-bottom: 4px;
     }
-    .diff-col-header .col-label.only-a { color: var(--only-a); }
-    .diff-col-header .col-label.shared  { color: var(--shared); }
-    .diff-col-header .col-label.only-b  { color: var(--only-b); }
+
+    .diff-col-header .col-label.only-a {
+      color: var(--only-a);
+    }
+
+    .diff-col-header .col-label.shared {
+      color: var(--shared);
+    }
+
+    .diff-col-header .col-label.only-b {
+      color: var(--only-b);
+    }
+
     .diff-col-header .col-name {
       font-family: var(--font-head);
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 2px;
     }
+
     .diff-col-header .col-count {
       font-family: var(--font-mono);
       font-size: 14px;
@@ -733,7 +953,12 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 640px) { .diff-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 640px) {
+      .diff-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .diff-col {
       background: var(--surface);
@@ -754,12 +979,24 @@
       padding: 7px 16px;
       line-height: 1.5;
       word-break: break-all;
-      border-bottom: 1px solid rgba(28,36,56,0.5);
+      border-bottom: 1px solid rgba(28, 36, 56, 0.5);
     }
-    .diff-perm:last-child { border-bottom: none; }
-    .diff-perm.only-a { color: var(--only-a); }
-    .diff-perm.shared  { color: var(--shared); }
-    .diff-perm.only-b  { color: var(--only-b); }
+
+    .diff-perm:last-child {
+      border-bottom: none;
+    }
+
+    .diff-perm.only-a {
+      color: var(--only-a);
+    }
+
+    .diff-perm.shared {
+      color: var(--shared);
+    }
+
+    .diff-perm.only-b {
+      color: var(--only-b);
+    }
 
     /* ── Sync bar (prominent update timer) ─────────────────────────── */
     .sync-bar {
@@ -771,23 +1008,38 @@
       color: var(--accent);
       margin-bottom: 32px;
     }
-    .sync-bar.stale { color: var(--warn); }
+
+    .sync-bar.stale {
+      color: var(--warn);
+    }
 
     .sync-dot {
-      width: 8px; height: 8px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 8px var(--accent);
       flex-shrink: 0;
       animation: syncpulse 2s ease-in-out infinite;
     }
+
     .sync-dot.stale {
       background: var(--warn);
       box-shadow: 0 0 8px var(--warn);
     }
+
     @keyframes syncpulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.5; transform: scale(0.75); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.75);
+      }
     }
 
     /* ── What's New panel ──────────────────────────────────────────── */
@@ -799,7 +1051,10 @@
       overflow: hidden;
       container-type: inline-size;
     }
-    .whats-new-panel.hidden { display: none; }
+
+    .whats-new-panel.hidden {
+      display: none;
+    }
 
     .whats-new-header {
       width: 100%;
@@ -814,7 +1069,10 @@
       text-align: left;
       gap: 3px;
     }
-    .whats-new-header:hover { background: var(--surface2); }
+
+    .whats-new-header:hover {
+      background: var(--surface2);
+    }
 
     .wn-title-row {
       display: flex;
@@ -822,14 +1080,23 @@
       align-items: center;
       gap: 8px;
     }
+
     .wn-title {
       font-family: var(--font-mono);
       font-size: 13px;
       font-weight: 600;
       color: var(--text);
     }
-    .whats-new-chevron { color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
-    .whats-new-chevron.open { transform: rotate(180deg); }
+
+    .whats-new-chevron {
+      color: var(--muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .whats-new-chevron.open {
+      transform: rotate(180deg);
+    }
 
     .wn-subtitle {
       font-family: var(--font-body);
@@ -843,8 +1110,13 @@
     }
 
     /* Each change is a wrapper: the summary row + an optional inline detail. */
-    .wn-item { border-bottom: 1px solid var(--border); }
-    .wn-item:last-child { border-bottom: none; }
+    .wn-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wn-item:last-child {
+      border-bottom: none;
+    }
 
     .whats-new-entry {
       display: flex;
@@ -855,32 +1127,63 @@
     }
 
     /* Expandable rows: chevron affordance + click-to-open detail. */
-    .wn-chev, .wn-chev-spacer {
+    .wn-chev,
+    .wn-chev-spacer {
       width: 16px;
       flex-shrink: 0;
       text-align: center;
       transition: transform 0.18s ease, color 0.18s ease;
     }
+
     .wn-chev {
       color: var(--text);
       opacity: 0.5;
       font-size: 14px;
       line-height: 1;
     }
-    .wn-item.wn-open .wn-chev { transform: rotate(90deg); color: var(--accent); opacity: 1; }
-    .wn-expandable > .whats-new-entry { cursor: pointer; border-radius: 6px; }
-    .wn-expandable > .whats-new-entry:hover { background: var(--surface2); }
-    .wn-expandable > .whats-new-entry:hover .wn-chev { color: var(--accent); opacity: 1; }
-    .wn-expandable > .whats-new-entry:focus-visible {
-      outline: 1px solid var(--accent); outline-offset: -1px;
+
+    .wn-item.wn-open .wn-chev {
+      transform: rotate(90deg);
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .wn-expandable>.whats-new-entry {
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .wn-expandable>.whats-new-entry:hover {
+      background: var(--surface2);
+    }
+
+    .wn-expandable>.whats-new-entry:hover .wn-chev {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .wn-expandable>.whats-new-entry:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: -1px;
     }
 
     /* Expanded "what exactly changed" detail (block flow — not flex column). */
-    .wn-detail { padding: 2px 0 12px 26px; }
-    .wn-detail[hidden] { display: none; }
+    .wn-detail {
+      padding: 2px 0 12px 26px;
+    }
 
-    .wn-pgroup { margin-top: 8px; }
-    .wn-pgroup:first-child { margin-top: 2px; }
+    .wn-detail[hidden] {
+      display: none;
+    }
+
+    .wn-pgroup {
+      margin-top: 8px;
+    }
+
+    .wn-pgroup:first-child {
+      margin-top: 2px;
+    }
+
     .wn-phead {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -889,8 +1192,15 @@
       margin-bottom: 4px;
       opacity: 0.85;
     }
-    .wn-phead.added   { color: var(--accent); }
-    .wn-phead.removed { color: var(--danger); }
+
+    .wn-phead.added {
+      color: var(--accent);
+    }
+
+    .wn-phead.removed {
+      color: var(--danger);
+    }
+
     .wn-perm {
       display: block;
       font-family: var(--font-mono);
@@ -899,10 +1209,25 @@
       color: var(--muted);
       word-break: break-all;
     }
-    .wn-perm.added   { color: var(--accent); }
-    .wn-perm.removed { color: var(--danger); }
-    .wn-perm .wn-sign { display: inline-block; width: 12px; font-weight: 700; }
-    .wn-perm-rest[hidden] { display: none; }
+
+    .wn-perm.added {
+      color: var(--accent);
+    }
+
+    .wn-perm.removed {
+      color: var(--danger);
+    }
+
+    .wn-perm .wn-sign {
+      display: inline-block;
+      width: 12px;
+      font-weight: 700;
+    }
+
+    .wn-perm-rest[hidden] {
+      display: none;
+    }
+
     .wn-more-btn {
       margin-top: 4px;
       background: none;
@@ -914,7 +1239,11 @@
       padding: 2px 8px;
       cursor: pointer;
     }
-    .wn-more-btn:hover { color: var(--text); border-color: var(--muted); }
+
+    .wn-more-btn:hover {
+      color: var(--text);
+      border-color: var(--muted);
+    }
 
     /* Word-level diff: full text in context, only changed words highlighted. */
     .wn-worddiff {
@@ -923,28 +1252,35 @@
       color: var(--muted);
       line-height: 1.6;
     }
+
     .wn-worddiff ins,
     .wn-worddiff del {
       border-radius: 3px;
       padding: 1px 5px;
       margin: 0 1px;
     }
+
     .wn-worddiff ins {
       text-decoration: none;
       color: var(--accent);
       background: rgba(0, 229, 163, 0.15);
     }
+
     .wn-worddiff del {
       text-decoration: line-through;
       text-decoration-thickness: 1px;
       color: var(--danger);
       background: rgba(248, 113, 113, 0.15);
     }
+
     /* A deletion replaced by an insertion is separated by a real space in the
        markup (see _wnDiffWords), so no extra margin is needed. */
 
     /* isPrivileged change: a plain Was / Now layout (no strikethrough) + why. */
-    .wn-privnote { font-family: var(--font-body); }
+    .wn-privnote {
+      font-family: var(--font-body);
+    }
+
     .wn-priv-row {
       font-family: var(--font-mono);
       font-size: 12px;
@@ -952,6 +1288,7 @@
       align-items: baseline;
       gap: 10px;
     }
+
     .wn-priv-tag {
       color: var(--muted);
       font-size: 10px;
@@ -960,13 +1297,35 @@
       width: 34px;
       flex-shrink: 0;
     }
-    .wn-priv-from { color: var(--muted); }
-    .wn-priv-to   { color: var(--text); }
-    .wn-priv-to.is-priv { color: var(--warn); font-weight: 600; }
-    .wn-priv-why  { font-size: 12px; color: var(--muted); line-height: 1.55; max-width: 70ch; margin-top: 5px; }
+
+    .wn-priv-from {
+      color: var(--muted);
+    }
+
+    .wn-priv-to {
+      color: var(--text);
+    }
+
+    .wn-priv-to.is-priv {
+      color: var(--warn);
+      font-weight: 600;
+    }
+
+    .wn-priv-why {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 70ch;
+      margin-top: 5px;
+    }
 
     /* Count badges in the summary row (+N added / −N removed, privileged). */
-    .wn-badges { display: inline-flex; gap: 5px; align-items: center; }
+    .wn-badges {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+    }
+
     .wn-badge {
       font-family: var(--font-mono);
       font-size: 10.5px;
@@ -976,17 +1335,55 @@
       border-radius: 999px;
       white-space: nowrap;
     }
-    .wn-badge.add  { color: var(--accent); background: rgba(0, 229, 163, 0.13); }
-    .wn-badge.rem  { color: var(--danger); background: rgba(248, 113, 113, 0.13); }
-    .wn-badge.priv { color: var(--warn);   background: rgba(251, 191, 36, 0.13); }
-    .wn-badge.unpriv { color: var(--muted); background: var(--surface2); }
-    .wn-badge.count { color: var(--text);  background: var(--surface2); }
-    .wn-badge.zero  { color: var(--muted); background: var(--surface2); }
-    .wn-label-soft { color: var(--muted); }
+
+    .wn-badge.add {
+      color: var(--accent);
+      background: rgba(0, 229, 163, 0.13);
+    }
+
+    .wn-badge.rem {
+      color: var(--danger);
+      background: rgba(248, 113, 113, 0.13);
+    }
+
+    .wn-badge.priv {
+      color: var(--warn);
+      background: rgba(251, 191, 36, 0.13);
+    }
+
+    .wn-badge.unpriv {
+      color: var(--muted);
+      background: var(--surface2);
+    }
+
+    .wn-badge.count {
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    .wn-badge.zero {
+      color: var(--muted);
+      background: var(--surface2);
+    }
+
+    .wn-label-soft {
+      color: var(--muted);
+    }
 
     /* New-role expanded detail (description + permission list / no-perms note). */
-    .wn-role-desc { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
-    .wn-role-note { font-size: 12px; color: var(--muted); line-height: 1.55; font-style: italic; }
+    .wn-role-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .wn-role-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-style: italic;
+    }
 
     .wn-fresh-dot {
       width: 7px;
@@ -996,47 +1393,126 @@
       flex-shrink: 0;
       visibility: hidden;
     }
+
     .whats-new-entry.wn-fresh .wn-fresh-dot {
       visibility: visible;
-      box-shadow: 0 0 8px rgba(0,229,163,0.7);
+      box-shadow: 0 0 8px rgba(0, 229, 163, 0.7);
     }
+
     .whats-new-entry.wn-fresh {
-      background: linear-gradient(90deg, rgba(0,229,163,0.06) 0%, transparent 42%);
+      background: linear-gradient(90deg, rgba(0, 229, 163, 0.06) 0%, transparent 42%);
     }
+
     @media (prefers-reduced-motion: no-preference) {
       .whats-new-entry.wn-fresh .wn-fresh-dot {
         animation: wn-pulse 1.8s ease-in-out infinite;
       }
+
       .whats-new-entry[data-idx] {
         opacity: 0;
         transform: translateY(6px);
         animation: wn-fadein 0.35s ease forwards;
       }
-      .whats-new-entry[data-idx="0"] { animation-delay: 0.05s; }
-      .whats-new-entry[data-idx="1"] { animation-delay: 0.10s; }
-      .whats-new-entry[data-idx="2"] { animation-delay: 0.15s; }
-      .whats-new-entry[data-idx="3"] { animation-delay: 0.20s; }
-      .whats-new-entry[data-idx="4"] { animation-delay: 0.25s; }
+
+      .whats-new-entry[data-idx="0"] {
+        animation-delay: 0.05s;
+      }
+
+      .whats-new-entry[data-idx="1"] {
+        animation-delay: 0.10s;
+      }
+
+      .whats-new-entry[data-idx="2"] {
+        animation-delay: 0.15s;
+      }
+
+      .whats-new-entry[data-idx="3"] {
+        animation-delay: 0.20s;
+      }
+
+      .whats-new-entry[data-idx="4"] {
+        animation-delay: 0.25s;
+      }
     }
+
     @keyframes wn-pulse {
-      0%, 100% { opacity: 1;    transform: scale(1); }
-      50%       { opacity: 0.35; transform: scale(0.65); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.35;
+        transform: scale(0.65);
+      }
     }
+
     @keyframes wn-fadein {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .wn-glyph          { font-size: 13px; flex-shrink: 0; width: 16px; text-align: center; color: var(--accent); }
-    .wn-glyph.removed  { color: var(--danger); }
-    .wn-glyph.modified { color: var(--warn); }
-    .wn-name   { font-family: var(--font-mono); font-size: 13px; color: var(--text); flex: 1; }
-    .wn-action { font-family: var(--font-body); font-size: 12px; color: var(--muted); }
-    .whats-new-entry.type-added .wn-action    { color: var(--accent); opacity: 0.85; }
-    .whats-new-entry.type-modified .wn-action { color: var(--warn);   opacity: 0.85; }
-    .whats-new-entry.type-removed .wn-action  { color: var(--danger); opacity: 0.85; }
-    .wn-date   { font-family: var(--font-mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .wn-glyph {
+      font-size: 13px;
+      flex-shrink: 0;
+      width: 16px;
+      text-align: center;
+      color: var(--accent);
+    }
 
-    .wn-show-all { display: flex; justify-content: center; padding: 10px 0 4px; }
+    .wn-glyph.removed {
+      color: var(--danger);
+    }
+
+    .wn-glyph.modified {
+      color: var(--warn);
+    }
+
+    .wn-name {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .wn-action {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .whats-new-entry.type-added .wn-action {
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    .whats-new-entry.type-modified .wn-action {
+      color: var(--warn);
+      opacity: 0.85;
+    }
+
+    .whats-new-entry.type-removed .wn-action {
+      color: var(--danger);
+      opacity: 0.85;
+    }
+
+    .wn-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .wn-show-all {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0 4px;
+    }
+
     .wn-show-all-btn {
       background: none;
       border: 1px solid var(--border);
@@ -1048,7 +1524,11 @@
       cursor: pointer;
       transition: background 0.15s, color 0.15s;
     }
-    .wn-show-all-btn:hover { background: var(--surface2); color: var(--text); }
+
+    .wn-show-all-btn:hover {
+      background: var(--surface2);
+      color: var(--text);
+    }
 
     /* ── Explainer grid ─────────────────────────────────────────────── */
     .explainer-grid {
@@ -1058,8 +1538,16 @@
       margin-bottom: 40px;
       transition: opacity 0.2s;
     }
-    @media (max-width: 640px) { .explainer-grid { grid-template-columns: 1fr; } }
-    .explainer-grid.hidden { display: none; }
+
+    @media (max-width: 640px) {
+      .explainer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .explainer-grid.hidden {
+      display: none;
+    }
 
     .explainer-card {
       background: var(--surface);
@@ -1070,7 +1558,8 @@
     }
 
     .explainer-icon {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       position: relative;
       margin-bottom: 14px;
     }
@@ -1079,18 +1568,23 @@
     .icon-search::before {
       content: '';
       position: absolute;
-      width: 22px; height: 22px;
+      width: 22px;
+      height: 22px;
       border: 3px solid var(--accent);
       border-radius: 50%;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
     }
+
     .icon-search::after {
       content: '';
       position: absolute;
-      width: 11px; height: 3px;
+      width: 11px;
+      height: 3px;
       background: var(--accent);
       border-radius: 2px;
-      top: 23px; left: 18px;
+      top: 23px;
+      left: 18px;
       transform: rotate(45deg);
       transform-origin: left center;
     }
@@ -1099,37 +1593,47 @@
     .icon-diff::before {
       content: '';
       position: absolute;
-      width: 8px; height: 28px;
+      width: 8px;
+      height: 28px;
       border-left: 3px solid var(--accent);
       border-right: 3px solid var(--accent);
-      top: 6px; left: 14px;
+      top: 6px;
+      left: 14px;
     }
+
     .icon-diff::after {
       content: '';
       position: absolute;
-      width: 2px; height: 20px;
+      width: 2px;
+      height: 20px;
       background: var(--border);
-      top: 10px; left: 19px;
+      top: 10px;
+      left: 19px;
     }
 
     /* Refresh icon — arc + arrowhead */
     .icon-refresh::before {
       content: '';
       position: absolute;
-      width: 26px; height: 26px;
+      width: 26px;
+      height: 26px;
       border: 3px solid var(--accent);
       border-bottom-color: transparent;
       border-radius: 50%;
-      top: 0; left: 7px;
+      top: 0;
+      left: 7px;
     }
+
     .icon-refresh::after {
       content: '';
       position: absolute;
-      width: 0; height: 0;
+      width: 0;
+      height: 0;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
       border-top: 7px solid var(--accent);
-      bottom: 6px; left: 24px;
+      bottom: 6px;
+      left: 24px;
       transform: rotate(-30deg);
     }
 
@@ -1140,6 +1644,7 @@
       color: var(--text);
       margin-bottom: 10px;
     }
+
     .explainer-text {
       font-size: 15px;
       color: var(--muted);
@@ -1154,7 +1659,10 @@
       margin-top: 16px;
       margin-bottom: 8px;
     }
-    .example-pills.hidden { display: none; }
+
+    .example-pills.hidden {
+      display: none;
+    }
 
     .pill-btn {
       font-family: var(--font-mono);
@@ -1168,7 +1676,11 @@
       transition: color 0.15s, border-color 0.15s;
       white-space: nowrap;
     }
-    .pill-btn:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+    .pill-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+    }
 
     /* ── Status bar ─────────────────────────────────────────────────── */
     .status-bar {
@@ -1201,15 +1713,33 @@
       font-size: 13px;
       color: var(--muted);
     }
-    .status-item b { color: var(--text); }
+
+    .status-item b {
+      color: var(--text);
+    }
 
     @keyframes stat-pulse {
-      0%   { opacity: 1; }
-      50%  { opacity: 0.3; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
-    .stat-pulse { animation: stat-pulse 0.3s ease; }
-    .status-item.sep { color: var(--border); user-select: none; }
+
+    .stat-pulse {
+      animation: stat-pulse 0.3s ease;
+    }
+
+    .status-item.sep {
+      color: var(--border);
+      user-select: none;
+    }
 
     /* ── Footer ─────────────────────────────────────────────────────── */
     footer {
@@ -1238,7 +1768,10 @@
       color: var(--muted);
       text-decoration: none;
     }
-    .footer-link:hover { color: var(--accent); }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
 
     /* ── GitHub stats bar ──────────────────────────────────────────── */
     .gh-stats-bar {
@@ -1251,6 +1784,7 @@
       font-size: 14px;
       color: var(--muted);
     }
+
     .gh-stats-link {
       display: flex;
       align-items: center;
@@ -1258,9 +1792,19 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-    .gh-stats-link:hover { color: var(--text); }
-    .gh-stat { white-space: nowrap; }
-    .gh-stat-sep { color: var(--border); user-select: none; }
+
+    .gh-stats-link:hover {
+      color: var(--text);
+    }
+
+    .gh-stat {
+      white-space: nowrap;
+    }
+
+    .gh-stat-sep {
+      color: var(--border);
+      user-select: none;
+    }
 
     /* ── Sentrux quality strip ──────────────────────────────────────── */
     .sentrux-bar {
@@ -1272,6 +1816,7 @@
       color: var(--muted);
       letter-spacing: 0.4px;
     }
+
     .sentrux-track {
       position: relative;
       width: 160px;
@@ -1281,22 +1826,33 @@
       overflow: hidden;
       flex-shrink: 0;
     }
+
     .sentrux-fill {
       position: absolute;
-      left: 0; top: 0; bottom: 0;
-      background: linear-gradient(90deg, var(--border) 0%, rgba(0,229,163,0.55) 100%);
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, var(--border) 0%, rgba(0, 229, 163, 0.55) 100%);
       border-radius: 2px;
     }
+
     .sentrux-beam {
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0;
+      bottom: 0;
       width: 50px;
-      background: linear-gradient(90deg, transparent 0%, rgba(0,229,163,0.45) 25%, rgba(255,255,255,0.88) 50%, rgba(0,229,163,0.45) 75%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 163, 0.45) 25%, rgba(255, 255, 255, 0.88) 50%, rgba(0, 229, 163, 0.45) 75%, transparent 100%);
       animation: kitt 2.4s linear infinite;
     }
+
     @keyframes kitt {
-      from { left: -50px; }
-      to   { left: 160px; }
+      from {
+        left: -50px;
+      }
+
+      to {
+        left: 160px;
+      }
     }
 
     /* ── Diff description + example pills ──────────────────────────── */
@@ -1306,6 +1862,7 @@
       margin-bottom: 28px;
       line-height: 1.6;
     }
+
     .diff-examples {
       display: flex;
       flex-wrap: wrap;
@@ -1330,6 +1887,7 @@
       padding: 32px 0;
       background: var(--bg);
     }
+
     .tools-label {
       font-family: var(--font-mono);
       font-size: 13px;
@@ -1338,12 +1896,19 @@
       color: var(--muted);
       margin-bottom: 16px;
     }
+
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-    @media (max-width: 640px) { .tools-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 640px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .tool-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1352,7 +1917,12 @@
       text-decoration: none;
       transition: border-color 0.15s, background 0.15s;
     }
-    .tool-card:hover { border-color: var(--accent-dim); background: var(--surface2); }
+
+    .tool-card:hover {
+      border-color: var(--accent-dim);
+      background: var(--surface2);
+    }
+
     .tool-name {
       font-family: var(--font-mono);
       font-size: 15px;
@@ -1360,6 +1930,7 @@
       color: var(--text);
       margin-bottom: 6px;
     }
+
     .tool-desc {
       font-size: 14px;
       color: var(--muted);
@@ -1374,7 +1945,10 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
     }
-    .how-to.hidden { display: none; }
+
+    .how-to.hidden {
+      display: none;
+    }
 
     .how-to h3 {
       font-family: var(--font-mono);
@@ -1386,12 +1960,19 @@
       margin-bottom: 14px;
     }
 
-    .how-to ol, .how-to ul {
+    .how-to ol,
+    .how-to ul {
       padding-left: 22px;
       margin-bottom: 14px;
     }
-    .how-to ol { list-style: decimal; }
-    .how-to ul { list-style: disc; }
+
+    .how-to ol {
+      list-style: decimal;
+    }
+
+    .how-to ul {
+      list-style: disc;
+    }
 
     .how-to li {
       font-family: var(--font-mono);
@@ -1400,7 +1981,11 @@
       line-height: 1.75;
       padding-left: 4px;
     }
-    .how-to li strong { color: var(--text); font-weight: 500; }
+
+    .how-to li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
 
     .how-to p {
       font-size: 15px;
@@ -1408,787 +1993,839 @@
       line-height: 1.65;
       margin-bottom: 0;
     }
-    .how-to p:not(:last-child) { margin-bottom: 12px; }
+
+    .how-to p:not(:last-child) {
+      margin-bottom: 12px;
+    }
 
     /* ── Scrollbar ──────────────────────────────────────────────────── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--surface); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--surface);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
   </style>
-  <script defer src="https://analytics.aboutcloud.io/script.js" data-website-id="46739eec-415b-4232-aadc-a5d68041b0fa"></script>
+  <script defer src="https://analytics.aboutcloud.io/script.js"
+    data-website-id="46739eec-415b-4232-aadc-a5d68041b0fa"></script>
 </head>
+
 <body>
 
-<!-- ── Header ──────────────────────────────────────────────────────── -->
-<header>
-  <div class="container">
-    <div class="header-inner">
-      <div class="header-brand">
-        <img src="https://images.aboutcloud.io/logos/rolelens-brand-logo-600.png" alt="Entra RoleLens" class="header-logo" />
-        <div class="header-text">
-          <a href="/" class="logo"><span class="entra-part">Entra</span> <span>RoleLens</span></a>
-          <div class="tagline">Minimum privilege · Always current</div>
-        </div>
-      </div>
-      <div class="header-right">
-        <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="ac-brand">
-          <img src="assets/logo_200x200_white.png" alt="aboutcloud.io" />
-          aboutcloud.io
-        </a>
-        <span class="last-updated" id="last-updated-badge">Loading…</span>
-        <a href="https://github.com/arusso-aboutcloud/entra-rolelens" target="_blank" rel="noopener" class="gh-link" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Tab toggle -->
-    <div class="tab-toggle-wrap">
-      <div class="tab-toggle">
-        <button class="tab-pill active" id="tab-search" onclick="switchMode('search')">Task → Role</button>
-        <button class="tab-pill"        id="tab-diff"   onclick="switchMode('diff')">Role Diff</button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ── Main ────────────────────────────────────────────────────────── -->
-<main style="flex:1; position:relative; z-index:1;">
-  <div class="container">
-
-    <!-- MODE 1: Task → Role -->
-    <section class="mode active" id="mode-search">
-      <h1 class="hero-text">Find the minimum role for any Entra task</h1>
-      <p class="hero-tagline">The right role. Right now.</p>
-
-      <!-- Sync bar — CHANGE 4 -->
-      <div class="sync-bar" id="sync-bar">
-        <span class="sync-dot" id="sync-dot"></span>
-        <span id="sync-text">Loading…</span>
-      </div>
-
-      <!-- GitHub stats — CHANGE 6 -->
-      <div class="gh-stats-bar" id="gh-stats"></div>
-
-      <!-- Sentrux quality strip -->
-      <div class="sentrux-bar" id="sentrux-bar" style="display:none">
-        <span style="color:var(--dim);user-select:none">◈</span>
-        <span style="color:var(--dim)">Code Quality</span>
-        <span id="sentrux-score" style="color:var(--muted)">—</span>
-        <div class="sentrux-track">
-          <div class="sentrux-fill" id="sentrux-fill" style="width:0%"></div>
-          <div class="sentrux-beam"></div>
-        </div>
-      </div>
-
-      <!-- What's new panel -->
-      <div class="whats-new-panel hidden" id="whats-new-panel">
-        <button class="whats-new-header" id="whats-new-toggle" onclick="toggleWhatsNew()">
-          <div class="wn-title-row">
-            <span class="wn-title">What's new</span>
-            <svg class="whats-new-chevron open" id="whats-new-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  <!-- ── Header ──────────────────────────────────────────────────────── -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="header-brand">
+          <!-- <img src="https://images.aboutcloud.io/logos/rolelens-brand-logo-600.png" alt="Entra RoleLens" -->
+          class="header-logo" />
+          <div class="header-text">
+            <a href="/" class="logo"><span class="entra-part">Entra</span> <span>RoleLens</span></a>
+            <div class="tagline">Minimum privilege · Always current</div>
           </div>
-          <span class="wn-subtitle" id="whats-new-subtitle">loading…</span>
-        </button>
-        <div class="whats-new-body" id="whats-new-body"></div>
-      </div>
-
-      <!-- Explainer cards — CHANGE 3 -->
-      <div class="explainer-grid" id="explainer-grid">
-        <div class="explainer-card">
-          <div class="explainer-icon icon-search"></div>
-          <div class="explainer-title">Task → Role</div>
-          <div class="explainer-text">Describe any Entra admin task in plain language. Get back the minimum built-in role — nothing more.</div>
         </div>
-        <div class="explainer-card">
-          <div class="explainer-icon icon-diff"></div>
-          <div class="explainer-title">Role diff</div>
-          <div class="explainer-text">Select any two built-in roles. See every permission one has that the other lacks, side by side.</div>
-        </div>
-        <div class="explainer-card">
-          <div class="explainer-icon icon-refresh"></div>
-          <div class="explainer-title">Always current</div>
-          <div class="explainer-text">Data sourced from Microsoft's official documentation. Refreshed nightly.</div>
+        <div class="header-right">
+          <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="ac-brand">
+            <img src="assets/logo_200x200_white.png" alt="aboutcloud.io" />
+            aboutcloud.io
+          </a>
+          <span class="last-updated" id="last-updated-badge">Loading…</span>
+          <a href="https://github.com/arusso-aboutcloud/entra-rolelens" target="_blank" rel="noopener" class="gh-link"
+            aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- How-to section — ISSUE 2 -->
-      <div class="how-to" id="how-to-use">
-        <h3>How it works</h3>
-        <ol>
-          <li>Type any Microsoft Entra admin task in plain language</li>
-          <li>Results show the minimum built-in role required</li>
-          <li>Click any result to see the full role permissions</li>
-          <li>Use Role Diff to compare any two roles side by side</li>
-        </ol>
-        <p>Results are sourced directly from Microsoft's official "least privileged by task" documentation, refreshed nightly. No AI — every result is deterministic.</p>
-      </div>
-
-      <div class="search-wrap">
-        <input
-          type="text"
-          id="search-input"
-          class="search-input"
-          placeholder="e.g. reset a user's MFA, read audit logs, manage conditional access…"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-      </div>
-      <div class="search-hint" id="search-hint"></div>
-
-      <!-- Example pills — 24 common Entra admin tasks -->
-      <div class="example-pills" id="example-pills">
-        <button class="pill-btn" onclick="runPillSearch('reset user MFA')">reset user MFA</button>
-        <button class="pill-btn" onclick="runPillSearch('reset user password')">reset user password</button>
-        <button class="pill-btn" onclick="runPillSearch('create user')">create user</button>
-        <button class="pill-btn" onclick="runPillSearch('read audit logs')">read audit logs</button>
-        <button class="pill-btn" onclick="runPillSearch('manage guest users')">manage guest users</button>
-        <button class="pill-btn" onclick="runPillSearch('assign licenses')">assign licenses</button>
-        <button class="pill-btn" onclick="runPillSearch('manage conditional access')">manage conditional access</button>
-        <button class="pill-btn" onclick="runPillSearch('configure PIM')">configure PIM</button>
-        <button class="pill-btn" onclick="runPillSearch('manage app registrations')">manage app registrations</button>
-        <button class="pill-btn" onclick="runPillSearch('manage groups')">manage groups</button>
-        <button class="pill-btn" onclick="runPillSearch('configure SSPR')">configure SSPR</button>
-        <button class="pill-btn" onclick="runPillSearch('read sign-in logs')">read sign-in logs</button>
-        <button class="pill-btn" onclick="runPillSearch('manage enterprise apps')">manage enterprise apps</button>
-        <button class="pill-btn" onclick="runPillSearch('manage named locations')">manage named locations</button>
-        <button class="pill-btn" onclick="runPillSearch('manage authentication methods')">manage authentication methods</button>
-        <button class="pill-btn" onclick="runPillSearch('configure passkeys')">configure passkeys</button>
-        <button class="pill-btn" onclick="runPillSearch('manage administrative units')">manage administrative units</button>
-        <button class="pill-btn" onclick="runPillSearch('manage access packages')">manage access packages</button>
-        <button class="pill-btn" onclick="runPillSearch('manage AI agents')">manage AI agents</button>
-        <button class="pill-btn" onclick="runPillSearch('configure GDAP')">configure GDAP</button>
-        <button class="pill-btn" onclick="runPillSearch('backup Entra directory')">backup Entra directory</button>
-        <button class="pill-btn" onclick="runPillSearch('manage Copilot governance')">manage Copilot governance</button>
-        <button class="pill-btn" onclick="runPillSearch('manage agent registry')">manage agent registry</button>
-        <button class="pill-btn" onclick="runPillSearch('restore deleted objects')">restore deleted objects</button>
-      </div>
-
-      <div id="search-results"></div>
-    </section>
-
-    <!-- MODE 2: Role Diff -->
-    <section class="mode" id="mode-diff">
-      <h1 class="hero-text">Compare permissions between any two roles</h1>
-
-      <p class="diff-desc">Select any two Entra ID built-in roles to compare their permissions side by side. See exactly what one role can do that the other cannot.</p>
-
-      <!-- How-to section — ISSUE 3 -->
-      <div class="how-to" id="diff-how-to">
-        <h3>How to use</h3>
-        <p><strong>How to use:</strong> Type a role name in each field — autocomplete will suggest matching roles. Or click one of the example comparisons above to get started instantly.</p>
-        <ul>
-          <li><strong>Left column (red)</strong> — permissions only Role A has</li>
-          <li><strong>Center column (gray)</strong> — permissions both roles share</li>
-          <li><strong>Right column (green)</strong> — permissions only Role B has</li>
-        </ul>
-        <p>Tip: compare a broad role (Global Administrator) against a scoped role (User Administrator) to find the minimum role for your use case.</p>
-      </div>
-
-      <!-- Pre-built comparison examples -->
-      <div class="diff-examples">
-        <button class="pill-btn" onclick="runDiffPill('Global Administrator','User Administrator')">Global Admin vs User Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Authentication Administrator','Helpdesk Administrator')">Authentication Admin vs Helpdesk Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Security Administrator','Security Reader')">Security Admin vs Security Reader</button>
-        <button class="pill-btn" onclick="runDiffPill('Application Administrator','Cloud Application Administrator')">Application Admin vs Cloud App Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Privileged Role Administrator','Global Administrator')">Privileged Role Admin vs Global Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Compliance Administrator','Compliance Data Administrator')">Compliance Admin vs Compliance Data Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Exchange Administrator','Teams Administrator')">Exchange Admin vs Teams Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Intune Administrator','Cloud Device Administrator')">Intune Admin vs Cloud Device Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Identity Governance Administrator','User Administrator')">Identity Governance Admin vs User Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('Password Administrator','Helpdesk Administrator')">Password Admin vs Helpdesk Admin</button>
-        <button class="pill-btn" onclick="runDiffPill('AI Administrator','AI Reader')">AI Administrator vs AI Reader</button>
-        <button class="pill-btn" onclick="runDiffPill('Agent ID Administrator','Agent ID Developer')">Agent ID Administrator vs Agent ID Developer</button>
-        <button class="pill-btn" onclick="runDiffPill('Entra Backup Administrator','Entra Backup Reader')">Entra Backup Administrator vs Entra Backup Reader</button>
-        <button class="pill-btn" onclick="runDiffPill('Tenant Governance Administrator','Tenant Governance Reader')">Tenant Governance Admin vs Tenant Governance Reader</button>
-        <button class="pill-btn" onclick="runDiffPill('Global Administrator','Agent Registry Administrator')">Global Admin vs Agent Registry Administrator</button>
-      </div>
-
-      <div class="diff-inputs">
-        <div class="autocomplete-wrap">
-          <label class="diff-label" for="role-a-input">Role A</label>
-          <input type="text" id="role-a-input" class="diff-input" placeholder="Global Administrator…" autocomplete="off" />
-          <div class="autocomplete-list" id="ac-list-a"></div>
-        </div>
-        <div class="autocomplete-wrap">
-          <label class="diff-label" for="role-b-input">Role B</label>
-          <input type="text" id="role-b-input" class="diff-input" placeholder="User Administrator…" autocomplete="off" />
-          <div class="autocomplete-list" id="ac-list-b"></div>
+      <!-- Tab toggle -->
+      <div class="tab-toggle-wrap">
+        <div class="tab-toggle">
+          <button class="tab-pill active" id="tab-search" onclick="switchMode('search')">Task → Role</button>
+          <button class="tab-pill" id="tab-diff" onclick="switchMode('diff')">Role Diff</button>
         </div>
       </div>
+    </div>
+  </header>
 
-      <button class="compare-btn" id="compare-btn" onclick="runDiff()" disabled>Compare</button>
+  <!-- ── Main ────────────────────────────────────────────────────────── -->
+  <main style="flex:1; position:relative; z-index:1;">
+    <div class="container">
 
-      <div id="diff-results">
-        <div class="diff-summary" id="diff-summary"></div>
-        <div class="diff-header" id="diff-header"></div>
-        <div class="diff-grid" id="diff-grid"></div>
+      <!-- MODE 1: Task → Role -->
+      <section class="mode active" id="mode-search">
+        <h1 class="hero-text">Find the minimum role for any Entra task</h1>
+        <p class="hero-tagline">The right role. Right now.</p>
+
+        <!-- Sync bar — CHANGE 4 -->
+        <div class="sync-bar" id="sync-bar">
+          <span class="sync-dot" id="sync-dot"></span>
+          <span id="sync-text">Loading…</span>
+        </div>
+
+        <!-- GitHub stats — CHANGE 6 -->
+        <div class="gh-stats-bar" id="gh-stats"></div>
+
+        <!-- Sentrux quality strip -->
+        <div class="sentrux-bar" id="sentrux-bar" style="display:none">
+          <span style="color:var(--dim);user-select:none">◈</span>
+          <span style="color:var(--dim)">Code Quality</span>
+          <span id="sentrux-score" style="color:var(--muted)">—</span>
+          <div class="sentrux-track">
+            <div class="sentrux-fill" id="sentrux-fill" style="width:0%"></div>
+            <div class="sentrux-beam"></div>
+          </div>
+        </div>
+
+        <!-- What's new panel -->
+        <div class="whats-new-panel hidden" id="whats-new-panel">
+          <button class="whats-new-header" id="whats-new-toggle" onclick="toggleWhatsNew()">
+            <div class="wn-title-row">
+              <span class="wn-title">What's new</span>
+              <svg class="whats-new-chevron open" id="whats-new-chevron" width="14" height="14" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <span class="wn-subtitle" id="whats-new-subtitle">loading…</span>
+          </button>
+          <div class="whats-new-body" id="whats-new-body"></div>
+        </div>
+
+        <!-- Explainer cards — CHANGE 3 -->
+        <div class="explainer-grid" id="explainer-grid">
+          <div class="explainer-card">
+            <div class="explainer-icon icon-search"></div>
+            <div class="explainer-title">Task → Role</div>
+            <div class="explainer-text">Describe any Entra admin task in plain language. Get back the minimum built-in
+              role — nothing more.</div>
+          </div>
+          <div class="explainer-card">
+            <div class="explainer-icon icon-diff"></div>
+            <div class="explainer-title">Role diff</div>
+            <div class="explainer-text">Select any two built-in roles. See every permission one has that the other
+              lacks, side by side.</div>
+          </div>
+          <div class="explainer-card">
+            <div class="explainer-icon icon-refresh"></div>
+            <div class="explainer-title">Always current</div>
+            <div class="explainer-text">Data sourced from Microsoft's official documentation. Refreshed nightly.</div>
+          </div>
+        </div>
+
+        <!-- How-to section — ISSUE 2 -->
+        <div class="how-to" id="how-to-use">
+          <h3>How it works</h3>
+          <ol>
+            <li>Type any Microsoft Entra admin task in plain language</li>
+            <li>Results show the minimum built-in role required</li>
+            <li>Click any result to see the full role permissions</li>
+            <li>Use Role Diff to compare any two roles side by side</li>
+          </ol>
+          <p>Results are sourced directly from Microsoft's official "least privileged by task" documentation, refreshed
+            nightly. No AI — every result is deterministic.</p>
+        </div>
+
+        <div class="search-wrap">
+          <input type="text" id="search-input" class="search-input"
+            placeholder="e.g. reset a user's MFA, read audit logs, manage conditional access…" autocomplete="off"
+            spellcheck="false" />
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </div>
+        <div class="search-hint" id="search-hint"></div>
+
+        <!-- Example pills — 24 common Entra admin tasks -->
+        <div class="example-pills" id="example-pills">
+          <button class="pill-btn" onclick="runPillSearch('reset user MFA')">reset user MFA</button>
+          <button class="pill-btn" onclick="runPillSearch('reset user password')">reset user password</button>
+          <button class="pill-btn" onclick="runPillSearch('create user')">create user</button>
+          <button class="pill-btn" onclick="runPillSearch('read audit logs')">read audit logs</button>
+          <button class="pill-btn" onclick="runPillSearch('manage guest users')">manage guest users</button>
+          <button class="pill-btn" onclick="runPillSearch('assign licenses')">assign licenses</button>
+          <button class="pill-btn" onclick="runPillSearch('manage conditional access')">manage conditional
+            access</button>
+          <button class="pill-btn" onclick="runPillSearch('configure PIM')">configure PIM</button>
+          <button class="pill-btn" onclick="runPillSearch('manage app registrations')">manage app registrations</button>
+          <button class="pill-btn" onclick="runPillSearch('manage groups')">manage groups</button>
+          <button class="pill-btn" onclick="runPillSearch('configure SSPR')">configure SSPR</button>
+          <button class="pill-btn" onclick="runPillSearch('read sign-in logs')">read sign-in logs</button>
+          <button class="pill-btn" onclick="runPillSearch('manage enterprise apps')">manage enterprise apps</button>
+          <button class="pill-btn" onclick="runPillSearch('manage named locations')">manage named locations</button>
+          <button class="pill-btn" onclick="runPillSearch('manage authentication methods')">manage authentication
+            methods</button>
+          <button class="pill-btn" onclick="runPillSearch('configure passkeys')">configure passkeys</button>
+          <button class="pill-btn" onclick="runPillSearch('manage administrative units')">manage administrative
+            units</button>
+          <button class="pill-btn" onclick="runPillSearch('manage access packages')">manage access packages</button>
+          <button class="pill-btn" onclick="runPillSearch('manage AI agents')">manage AI agents</button>
+          <button class="pill-btn" onclick="runPillSearch('configure GDAP')">configure GDAP</button>
+          <button class="pill-btn" onclick="runPillSearch('backup Entra directory')">backup Entra directory</button>
+          <button class="pill-btn" onclick="runPillSearch('manage Copilot governance')">manage Copilot
+            governance</button>
+          <button class="pill-btn" onclick="runPillSearch('manage agent registry')">manage agent registry</button>
+          <button class="pill-btn" onclick="runPillSearch('restore deleted objects')">restore deleted objects</button>
+        </div>
+
+        <div id="search-results"></div>
+      </section>
+
+      <!-- MODE 2: Role Diff -->
+      <section class="mode" id="mode-diff">
+        <h1 class="hero-text">Compare permissions between any two roles</h1>
+
+        <p class="diff-desc">Select any two Entra ID built-in roles to compare their permissions side by side. See
+          exactly what one role can do that the other cannot.</p>
+
+        <!-- How-to section — ISSUE 3 -->
+        <div class="how-to" id="diff-how-to">
+          <h3>How to use</h3>
+          <p><strong>How to use:</strong> Type a role name in each field — autocomplete will suggest matching roles. Or
+            click one of the example comparisons above to get started instantly.</p>
+          <ul>
+            <li><strong>Left column (red)</strong> — permissions only Role A has</li>
+            <li><strong>Center column (gray)</strong> — permissions both roles share</li>
+            <li><strong>Right column (green)</strong> — permissions only Role B has</li>
+          </ul>
+          <p>Tip: compare a broad role (Global Administrator) against a scoped role (User Administrator) to find the
+            minimum role for your use case.</p>
+        </div>
+
+        <!-- Pre-built comparison examples -->
+        <div class="diff-examples">
+          <button class="pill-btn" onclick="runDiffPill('Global Administrator','User Administrator')">Global Admin vs
+            User Admin</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Authentication Administrator','Helpdesk Administrator')">Authentication Admin vs
+            Helpdesk Admin</button>
+          <button class="pill-btn" onclick="runDiffPill('Security Administrator','Security Reader')">Security Admin vs
+            Security Reader</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Application Administrator','Cloud Application Administrator')">Application Admin vs
+            Cloud App Admin</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Privileged Role Administrator','Global Administrator')">Privileged Role Admin vs
+            Global Admin</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Compliance Administrator','Compliance Data Administrator')">Compliance Admin vs
+            Compliance Data Admin</button>
+          <button class="pill-btn" onclick="runDiffPill('Exchange Administrator','Teams Administrator')">Exchange Admin
+            vs Teams Admin</button>
+          <button class="pill-btn" onclick="runDiffPill('Intune Administrator','Cloud Device Administrator')">Intune
+            Admin vs Cloud Device Admin</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Identity Governance Administrator','User Administrator')">Identity Governance Admin vs
+            User Admin</button>
+          <button class="pill-btn" onclick="runDiffPill('Password Administrator','Helpdesk Administrator')">Password
+            Admin vs Helpdesk Admin</button>
+          <button class="pill-btn" onclick="runDiffPill('AI Administrator','AI Reader')">AI Administrator vs AI
+            Reader</button>
+          <button class="pill-btn" onclick="runDiffPill('Agent ID Administrator','Agent ID Developer')">Agent ID
+            Administrator vs Agent ID Developer</button>
+          <button class="pill-btn" onclick="runDiffPill('Entra Backup Administrator','Entra Backup Reader')">Entra
+            Backup Administrator vs Entra Backup Reader</button>
+          <button class="pill-btn"
+            onclick="runDiffPill('Tenant Governance Administrator','Tenant Governance Reader')">Tenant Governance Admin
+            vs Tenant Governance Reader</button>
+          <button class="pill-btn" onclick="runDiffPill('Global Administrator','Agent Registry Administrator')">Global
+            Admin vs Agent Registry Administrator</button>
+        </div>
+
+        <div class="diff-inputs">
+          <div class="autocomplete-wrap">
+            <label class="diff-label" for="role-a-input">Role A</label>
+            <input type="text" id="role-a-input" class="diff-input" placeholder="Global Administrator…"
+              autocomplete="off" />
+            <div class="autocomplete-list" id="ac-list-a"></div>
+          </div>
+          <div class="autocomplete-wrap">
+            <label class="diff-label" for="role-b-input">Role B</label>
+            <input type="text" id="role-b-input" class="diff-input" placeholder="User Administrator…"
+              autocomplete="off" />
+            <div class="autocomplete-list" id="ac-list-b"></div>
+          </div>
+        </div>
+
+        <button class="compare-btn" id="compare-btn" onclick="runDiff()" disabled>Compare</button>
+
+        <div id="diff-results">
+          <div class="diff-summary" id="diff-summary"></div>
+          <div class="diff-header" id="diff-header"></div>
+          <div class="diff-grid" id="diff-grid"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── Status bar ───────────────────────────────────────────────────── -->
+  <div class="status-bar">
+    <div class="container">
+      <div class="status-inner">
+        <div class="status-dot"></div>
+        <span class="status-item"><b id="stat-roles">—</b> roles</span>
+        <span class="status-item sep">·</span>
+        <span class="status-item"><b id="stat-tasks">—</b> tasks</span>
+        <span class="status-item sep" id="stat-shadow-sep" style="display:none">·</span>
+        <span class="status-item" id="stat-shadow" style="display:none"><b id="stat-shadow-count">—</b> unlisted
+          roles</span>
+        <span class="status-item sep">·</span>
+        <span class="status-item" id="stat-pipeline">Pipeline loading…</span>
+        <span class="status-item sep" id="stat-wn-sep" style="display:none">·</span>
+        <span class="status-item" id="stat-wn-story" style="display:none"></span>
+        <span class="status-item sep">·</span>
+        <span class="status-item">Data: Microsoft Graph API · Microsoft Learn · MicrosoftDocs</span>
       </div>
-    </section>
-
-  </div>
-</main>
-
-<!-- ── Status bar ───────────────────────────────────────────────────── -->
-<div class="status-bar">
-  <div class="container">
-    <div class="status-inner">
-      <div class="status-dot"></div>
-      <span class="status-item"><b id="stat-roles">—</b> roles</span>
-      <span class="status-item sep">·</span>
-      <span class="status-item"><b id="stat-tasks">—</b> tasks</span>
-      <span class="status-item sep" id="stat-shadow-sep" style="display:none">·</span>
-      <span class="status-item" id="stat-shadow" style="display:none"><b id="stat-shadow-count">—</b> unlisted roles</span>
-      <span class="status-item sep">·</span>
-      <span class="status-item" id="stat-pipeline">Pipeline loading…</span>
-      <span class="status-item sep" id="stat-wn-sep" style="display:none">·</span>
-      <span class="status-item" id="stat-wn-story" style="display:none"></span>
-      <span class="status-item sep">·</span>
-      <span class="status-item">Data: Microsoft Graph API · Microsoft Learn · MicrosoftDocs</span>
     </div>
   </div>
-</div>
 
-<!-- ── More tools ───────────────────────────────────────────────────── -->
-<div class="tools-section">
-  <div class="container">
-    <div class="tools-label">More tools from aboutcloud.io</div>
-    <div class="tools-grid">
-      <a href="https://entratracker.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
-        <div class="tool-name">Entra Tracker</div>
-        <div class="tool-desc">Live Microsoft Entra change tracker</div>
-      </a>
-      <a href="https://entraerrors.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
-        <div class="tool-name">Entra Errors</div>
-        <div class="tool-desc">349 AADSTS error code reference</div>
-      </a>
-      <a href="https://entrapass.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
-        <div class="tool-name">EntraPass</div>
-        <div class="tool-desc">Passkey readiness scanner for Entra ID</div>
-      </a>
-      <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
-        <div class="tool-name">aboutcloud.io</div>
-        <div class="tool-desc">Entra ID · Security · Cloud</div>
-      </a>
+  <!-- ── More tools ───────────────────────────────────────────────────── -->
+  <div class="tools-section">
+    <div class="container">
+      <div class="tools-label">More tools from aboutcloud.io</div>
+      <div class="tools-grid">
+        <a href="https://entratracker.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-name">Entra Tracker</div>
+          <div class="tool-desc">Live Microsoft Entra change tracker</div>
+        </a>
+        <a href="https://entraerrors.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-name">Entra Errors</div>
+          <div class="tool-desc">349 AADSTS error code reference</div>
+        </a>
+        <a href="https://entrapass.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-name">EntraPass</div>
+          <div class="tool-desc">Passkey readiness scanner for Entra ID</div>
+        </a>
+        <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="tool-card">
+          <div class="tool-name">aboutcloud.io</div>
+          <div class="tool-desc">Entra ID · Security · Cloud</div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ── Footer ───────────────────────────────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-text">Data sourced from Microsoft's official documentation · Refreshed daily · Not affiliated with or endorsed by Microsoft</span>
-      <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="footer-link">aboutcloud.io</a>
+  <!-- ── Footer ───────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-text">Data sourced from Microsoft's official documentation · Refreshed daily · Not
+          affiliated with or endorsed by Microsoft</span>
+        <a href="https://blog.aboutcloud.io" target="_blank" rel="noopener" class="footer-link">aboutcloud.io</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  'use strict';
+  <script>
+    'use strict';
 
-  const API = ''; // same-origin: served by this Express server (Azure App Service)
-  const GH_ISSUES = 'https://github.com/arusso-aboutcloud/entra-rolelens/issues';
+    const API = ''; // same-origin: served by this Express server (Azure App Service)
+    const GH_ISSUES = 'https://github.com/arusso-aboutcloud/entra-rolelens/issues';
 
-  // ── State ────────────────────────────────────────────────────────────
-  let allRoles = [];         // [{id, display_name, is_privileged}]
-  let selectedRoleA = null;  // display_name string
-  let selectedRoleB = null;
+    // ── State ────────────────────────────────────────────────────────────
+    let allRoles = [];         // [{id, display_name, is_privileged}]
+    let selectedRoleA = null;  // display_name string
+    let selectedRoleB = null;
 
-  // ── Mode toggle ──────────────────────────────────────────────────────
-  function switchMode(mode) {
-    document.querySelectorAll('.mode').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.tab-pill').forEach(el => el.classList.remove('active'));
-    document.getElementById('mode-' + mode).classList.add('active');
-    document.getElementById('tab-' + mode).classList.add('active');
-  }
-
-  // ── Status bar + last updated ────────────────────────────────────────
-  const _prevStats = { roles: null, tasks: null, shadow: null, updated: null };
-
-  function pulseEl(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.remove('stat-pulse');
-    void el.offsetWidth; // force reflow to restart animation
-    el.classList.add('stat-pulse');
-  }
-
-  async function loadStatus() {
-    try {
-      const res = await fetch(API + '/api/status');
-      const d = await res.json();
-
-      const newRoles = String(d.role_count ?? '—');
-      const newTasks = String(d.task_count ?? '—');
-      if (newRoles !== _prevStats.roles) { pulseEl('stat-roles');  _prevStats.roles  = newRoles; }
-      if (newTasks !== _prevStats.tasks) { pulseEl('stat-tasks');  _prevStats.tasks  = newTasks; }
-
-      document.getElementById('stat-roles').textContent = newRoles;
-      document.getElementById('stat-tasks').textContent = newTasks;
-      document.getElementById('stat-pipeline').textContent =
-        'Pipeline ' + (d.pipeline === 'healthy' ? 'healthy' : d.pipeline ?? 'unknown');
-
-      const shadowCount = d.shadow_role_count ?? 0;
-      if (shadowCount > 0) {
-        const newShadow = String(shadowCount);
-        if (newShadow !== _prevStats.shadow) { pulseEl('stat-shadow-count'); _prevStats.shadow = newShadow; }
-        document.getElementById('stat-shadow-count').textContent = shadowCount;
-        document.getElementById('stat-shadow').style.display = '';
-        document.getElementById('stat-shadow-sep').style.display = '';
-      }
-
-      // Header badge
-      const badge = document.getElementById('last-updated-badge');
-      // Sync bar (prominent)
-      const syncText = document.getElementById('sync-text');
-      const syncDot  = document.getElementById('sync-dot');
-      const syncBar  = document.getElementById('sync-bar');
-
-      if (d.last_updated) {
-        // last_updated from KV is a date-only string "YYYY-MM-DD"
-        // Parse as UTC noon to avoid timezone-driven day shifts
-        const updated  = new Date(d.last_updated + 'T12:00:00Z');
-        const now      = new Date();
-        const diffDays = Math.floor((now - updated) / 86400000);
-        const isStale  = diffDays > 1;
-
-        // Format: "15 Apr 2026"
-        const fmtDate = updated.toLocaleDateString('en-GB', {
-          day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
-        });
-
-        // Header badge — exact date
-        const newUpdated = `Updated ${fmtDate}`;
-        if (newUpdated !== _prevStats.updated) { pulseEl('last-updated-badge'); _prevStats.updated = newUpdated; }
-        badge.textContent = newUpdated;
-        if (diffDays <= 1) badge.classList.add('fresh');
-
-        // Sync bar — exact date + known pipeline run time (01:00 UTC)
-        if (syncText) syncText.textContent = `Live — updated ${fmtDate} at 01:00 UTC`;
-        if (syncDot)  syncDot.classList.toggle('stale', isStale);
-        if (syncBar)  syncBar.classList.toggle('stale', isStale);
-      } else {
-        badge.textContent = 'Unknown';
-        if (syncText) syncText.textContent = 'Status unknown';
-      }
-    } catch {
-      document.getElementById('stat-pipeline').textContent = 'Pipeline status unavailable';
-      document.getElementById('last-updated-badge').textContent = 'Offline';
-      const syncText = document.getElementById('sync-text');
-      if (syncText) syncText.textContent = 'Offline';
+    // ── Mode toggle ──────────────────────────────────────────────────────
+    function switchMode(mode) {
+      document.querySelectorAll('.mode').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-pill').forEach(el => el.classList.remove('active'));
+      document.getElementById('mode-' + mode).classList.add('active');
+      document.getElementById('tab-' + mode).classList.add('active');
     }
-  }
 
-  // ── Load roles for autocomplete ──────────────────────────────────────
-  async function loadRoles() {
-    try {
-      const res = await fetch(API + '/api/roles');
-      allRoles = await res.json();
-    } catch {
-      allRoles = [];
+    // ── Status bar + last updated ────────────────────────────────────────
+    const _prevStats = { roles: null, tasks: null, shadow: null, updated: null };
+
+    function pulseEl(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('stat-pulse');
+      void el.offsetWidth; // force reflow to restart animation
+      el.classList.add('stat-pulse');
     }
-  }
 
-  // ── Synonym expansion ────────────────────────────────────────────────
-  const SYNONYMS = {
-    // Short abbreviations that need synonym to bypass length gate
-    'ai':                      'ai administrator',
+    async function loadStatus() {
+      try {
+        const res = await fetch(API + '/api/status');
+        const d = await res.json();
 
-    // Identity & access
-    'pim':                     'privileged identity management',
-    'privileged identity':     'privileged identity management',
-    'jit':                     'just in time access',
-    'just-in-time':            'just in time access',
-    'rbac':                    'role based access control',
-    'role based access':       'role based access control',
-    'pac':                     'privileged access',
-    'pag':                     'privileged access group',
+        const newRoles = String(d.role_count ?? '—');
+        const newTasks = String(d.task_count ?? '—');
+        if (newRoles !== _prevStats.roles) { pulseEl('stat-roles'); _prevStats.roles = newRoles; }
+        if (newTasks !== _prevStats.tasks) { pulseEl('stat-tasks'); _prevStats.tasks = newTasks; }
 
-    // Authentication
-    'mfa':                     'multi factor authentication',
-    'multi-factor':            'multi factor authentication',
-    'multifactor':             'multi factor authentication',
-    '2fa':                     'two factor authentication',
-    'two-factor':              'two factor authentication',
-    'fido2':                   'passkey passwordless authentication',
-    'fido':                    'passkey passwordless authentication',
-    'passkey':                 'passwordless authentication',
-    'passwordless':            'passwordless authentication',
-    'sspr':                    'self service password reset',
-    'self-service password':   'self service password reset',
-    'password reset':          'reset user password',
-    'reset password':         'reset non admin password',
-    'reset user password':     'reset non admin password',
-    'tap':                     'temporary access pass',
-    'temporary access pass':   'temporary access pass',
-    'windows hello':           'passwordless authentication',
+        document.getElementById('stat-roles').textContent = newRoles;
+        document.getElementById('stat-tasks').textContent = newTasks;
+        document.getElementById('stat-pipeline').textContent =
+          'Pipeline ' + (d.pipeline === 'healthy' ? 'healthy' : d.pipeline ?? 'unknown');
 
-    // Conditional Access & network
-    'ca':                      'conditional access',
-    'conditional access':      'conditional access',
-    'cap':                     'conditional access policy',
-    'named location':          'named locations conditional access',
-    'trusted location':        'named locations conditional access',
-    'ip range':                'named locations conditional access',
-    'gsa':                     'global secure access',
-    'global secure access':    'global secure access',
-    'entra internet access':   'global secure access',
-    'entra private access':    'global secure access',
-    'ztna':                    'zero trust network access',
-    'zero trust network':      'zero trust network access',
+        const shadowCount = d.shadow_role_count ?? 0;
+        if (shadowCount > 0) {
+          const newShadow = String(shadowCount);
+          if (newShadow !== _prevStats.shadow) { pulseEl('stat-shadow-count'); _prevStats.shadow = newShadow; }
+          document.getElementById('stat-shadow-count').textContent = shadowCount;
+          document.getElementById('stat-shadow').style.display = '';
+          document.getElementById('stat-shadow-sep').style.display = '';
+        }
 
-    // External identities & guests
-    'b2b':                     'external collaboration guest users',
-    'b2c':                     'external identities',
-    'guest':                   'guest users external collaboration',
-    'external user':           'guest users external collaboration',
-    'external identity':       'external identities',
-    'cross-tenant':            'cross tenant access',
-    'cross tenant':            'cross tenant access',
+        // Header badge
+        const badge = document.getElementById('last-updated-badge');
+        // Sync bar (prominent)
+        const syncText = document.getElementById('sync-text');
+        const syncDot = document.getElementById('sync-dot');
+        const syncBar = document.getElementById('sync-bar');
 
-    // Applications & service principals
-    'app registration':        'application registration',
-    'app registrations':       'application registration',
-    'app reg':                 'application registration',
-    'service principal':       'enterprise application service principal',
-    'sp':                      'service principal enterprise application',
-    'enterprise app':          'enterprise application',
-    'saml':                    'enterprise application single sign on',
-    'sso':                     'single sign on enterprise application',
-    'single sign-on':          'single sign on enterprise application',
-    'oauth':                   'application permission oauth',
-    'api permission':          'application permission consent',
-    'admin consent':           'application permission consent grant',
+        if (d.last_updated) {
+          // last_updated from KV is a date-only string "YYYY-MM-DD"
+          // Parse as UTC noon to avoid timezone-driven day shifts
+          const updated = new Date(d.last_updated + 'T12:00:00Z');
+          const now = new Date();
+          const diffDays = Math.floor((now - updated) / 86400000);
+          const isStale = diffDays > 1;
 
-    // Entitlement management & governance
-    'elm':                     'entitlement management',
-    'entitlement':             'entitlement management access package',
-    'access package':          'entitlement management access package',
-    'access packages':         'entitlement management access package',
-    'manage access packages':  'entitlement management access package',
-    'access review':           'access reviews',
-    'lifecycle':               'lifecycle workflows identity governance',
-    'identity governance':     'entitlement management access reviews',
+          // Format: "15 Apr 2026"
+          const fmtDate = updated.toLocaleDateString('en-GB', {
+            day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
+          });
 
-    // Devices
-    'mdm':                     'mobile device management',
-    'device management':       'mobile device management intune',
-    'intune':                  'mobile device management',
-    'aad join':                'azure ad join device',
-    'entra join':              'azure ad join device',
-    'hybrid join':             'hybrid azure ad joined device',
-    'bitlocker':               'bitlocker device encryption',
-    'compliance policy':       'device compliance intune',
+          // Header badge — exact date
+          const newUpdated = `Updated ${fmtDate}`;
+          if (newUpdated !== _prevStats.updated) { pulseEl('last-updated-badge'); _prevStats.updated = newUpdated; }
+          badge.textContent = newUpdated;
+          if (diffDays <= 1) badge.classList.add('fresh');
 
-    // Security & monitoring
-    'defender':                'microsoft defender security',
-    'identity protection':     'microsoft entra id protection risk',
-    'id protection':           'microsoft entra id protection risk',
-    'risky user':              'identity protection risk user',
-    'risky sign-in':           'identity protection risk sign in',
-    'sign in log':             'sign in logs audit',
-    'signin log':              'sign in logs audit',
-    'audit log':               'audit logs monitoring',
-    'diagnostic':              'diagnostic settings monitoring',
-    'siem':                    'security information event management',
+          // Sync bar — exact date + known pipeline run time (01:00 UTC)
+          if (syncText) syncText.textContent = `Live — updated ${fmtDate} at 01:00 UTC`;
+          if (syncDot) syncDot.classList.toggle('stale', isStale);
+          if (syncBar) syncBar.classList.toggle('stale', isStale);
+        } else {
+          badge.textContent = 'Unknown';
+          if (syncText) syncText.textContent = 'Status unknown';
+        }
+      } catch {
+        document.getElementById('stat-pipeline').textContent = 'Pipeline status unavailable';
+        document.getElementById('last-updated-badge').textContent = 'Offline';
+        const syncText = document.getElementById('sync-text');
+        if (syncText) syncText.textContent = 'Offline';
+      }
+    }
 
-    // Directory & users
-    'aad':                     'azure active directory',
-    'azure ad':                'microsoft entra id',
-    'entra id':                'microsoft entra id',
-    'directory role':          'directory role assignment',
-    'admin unit':              'administrative unit',
-    'administrative unit':     'administrative unit',
-    'administrative units':    'administrative unit',
-    'manage administrative units': 'administrative unit',
-    'scoped admin':            'administrative unit',
-    'au':                      'administrative unit',
-    'bulk user':               'bulk create import users',
-    'manage groups':           'group membership management',
-    'dynamic group':           'dynamic membership group',
-    'dynamic membership':      'dynamic membership group',
-    'license':                 'license assignment',
-    'license assignment':      'license assignment',
+    // ── Load roles for autocomplete ──────────────────────────────────────
+    async function loadRoles() {
+      try {
+        const res = await fetch(API + '/api/roles');
+        allRoles = await res.json();
+      } catch {
+        allRoles = [];
+      }
+    }
 
-    // Networking & hybrid
-    'ad connect':              'azure ad connect hybrid',
-    'azure ad connect':        'azure ad connect hybrid sync',
-    'adc':                     'azure ad connect',
-    'hybrid':                  'hybrid azure ad connect on premises',
-    'on-premises':             'on premises directory sync',
-    'on prem':                 'on premises directory sync',
-    'password hash sync':      'password hash synchronization azure ad connect',
-    'phs':                     'password hash synchronization',
-    'pts':                     'pass through authentication',
-    'pass-through':            'pass through authentication',
-    'pta':                     'pass through authentication',
-    'federation':              'federated identity federation',
-    'adfs':                    'active directory federation services',
+    // ── Synonym expansion ────────────────────────────────────────────────
+    const SYNONYMS = {
+      // Short abbreviations that need synonym to bypass length gate
+      'ai': 'ai administrator',
 
-    // Misc Entra features
-    'verified id':             'verifiable credentials',
-    'verifiable credential':   'verifiable credentials',
-    'workload identity':       'workload identity federated credential',
-    'managed identity':        'managed identity workload',
-    'custom domain':           'custom domain name dns',
-    'tenant':                  'tenant settings configuration',
-    'terms of use':            'terms of use compliance',
-    'tou':                     'terms of use',
+      // Identity & access
+      'pim': 'privileged identity management',
+      'privileged identity': 'privileged identity management',
+      'jit': 'just in time access',
+      'just-in-time': 'just in time access',
+      'rbac': 'role based access control',
+      'role based access': 'role based access control',
+      'pac': 'privileged access',
+      'pag': 'privileged access group',
 
-    // Agent identity
-    'manage ai agents':        'agent identity',
-    'ai agent management':     'agent identity',
-    'agent management':        'agent identity',
-    'ai agent':                'agent identity',
-    'copilot agent':           'agent identity',
-    'bot identity':            'agent identity',
-    'bot':                     'agent identity',
-    'nhi':                     'agent identity',
-    'non-human identity':      'agent identity',
-    'nonhuman identity':       'agent identity',
-    'machine identity':        'agent identity',
-    'agentic identity':        'agent identity',
-    'genai identity':          'agent identity',
-    'llm agent':               'agent identity',
-    'autonomous agent':        'agent identity',
-    'blueprint':               'agent identity blueprint',
-    'agent blueprint':         'agent identity blueprint',
-    'agent id':                'agent identity',
-    'sponsor':                 'agent sponsor',
-    'agent owner':             'agent sponsor',
-    'agent registry':          'agent registry administrator',
-    'agent rbac':              'agent id administrator',
-    'govern agents':           'agent id administrator',
-    'service account':         'service principal',
-    'svc account':             'service principal',
-    'robot account':           'service principal',
-    'nhi governance':          'nonhuman identity',
-    'orphaned agent':          'agent identity',
-    'ownerless agent':         'agent identity',
-    'hybrid identity admin':   'entra connect administrator',
-    'entra connect admin':     'entra connect administrator',
-    'passkey admin':           'authentication administrator',
-    'fido admin':              'authentication administrator',
-    'external user admin':     'guest inviter',
-    'guest admin':             'guest inviter',
-    'pim for groups':          'privileged access administrator',
-    'privileged access group': 'privileged access administrator',
-    'eligible group member':   'privileged identity management',
+      // Authentication
+      'mfa': 'multi factor authentication',
+      'multi-factor': 'multi factor authentication',
+      'multifactor': 'multi factor authentication',
+      '2fa': 'two factor authentication',
+      'two-factor': 'two factor authentication',
+      'fido2': 'passkey passwordless authentication',
+      'fido': 'passkey passwordless authentication',
+      'passkey': 'passwordless authentication',
+      'passwordless': 'passwordless authentication',
+      'sspr': 'self service password reset',
+      'self-service password': 'self service password reset',
+      'password reset': 'reset user password',
+      'reset password': 'reset non admin password',
+      'reset user password': 'reset non admin password',
+      'tap': 'temporary access pass',
+      'temporary access pass': 'temporary access pass',
+      'windows hello': 'passwordless authentication',
 
-    // AI governance
-    'copilot admin':           'ai administrator',
-    'copilot rbac':            'ai administrator',
-    'ai rbac':                 'ai administrator',
-    'copilot permissions':     'ai administrator',
-    'copilot governance':      'copilot governance',
-    'm365 copilot admin':      'ai administrator',
-    'ai audit':                'ai reader',
-    'copilot audit':           'ai reader',
-    'ai read-only':            'ai reader',
-    'genai admin':             'ai administrator',
-    'llm admin':               'ai administrator',
-    'copilot':                 'ai administrator',
-    'm365 copilot':            'ai administrator',
-    'ai governance':           'ai administrator',
-    'ai admin':                'ai administrator',
-    'openai admin':            'ai administrator',
-    'chatgpt admin':           'ai administrator',
-    'ai reader':               'ai reader',
-    'govern copilot':          'ai administrator',
+      // Conditional Access & network
+      'ca': 'conditional access',
+      'conditional access': 'conditional access',
+      'cap': 'conditional access policy',
+      'named location': 'named locations conditional access',
+      'trusted location': 'named locations conditional access',
+      'ip range': 'named locations conditional access',
+      'gsa': 'global secure access',
+      'global secure access': 'global secure access',
+      'entra internet access': 'global secure access',
+      'entra private access': 'global secure access',
+      'ztna': 'zero trust network access',
+      'zero trust network': 'zero trust network access',
 
-    // Backup and recovery
-    'backup':                  'entra backup administrator',
-    'entra backup':            'entra backup administrator',
-    'tenant backup':           'entra backup administrator',
-    'directory backup':        'entra backup administrator',
-    'entra restore':           'entra backup administrator',
-    'tenant restore':          'entra backup administrator',
-    'disaster recovery':       'entra backup administrator',
-    'dr':                      'entra backup administrator',
-    'bcdr':                    'entra backup administrator',
-    'recover deleted':         'entra backup administrator',
-    'undelete':                'entra backup administrator',
-    'rollback':                'entra backup administrator',
-    'recovery':                'entra backup administrator',
-    'backup admin':            'entra backup administrator',
-    'entra dr':                'entra backup administrator',
-    'restore entra':           'entra backup administrator',
-    'recover deleted users':   'entra backup administrator',
-    'recover deleted groups':  'entra backup administrator',
+      // External identities & guests
+      'b2b': 'external collaboration guest users',
+      'b2c': 'external identities',
+      'guest': 'guest users external collaboration',
+      'external user': 'guest users external collaboration',
+      'external identity': 'external identities',
+      'cross-tenant': 'cross tenant access',
+      'cross tenant': 'cross tenant access',
 
-    // GDAP and tenant governance
-    'gdap relationships':      'gdap relationships partners',
-    'gdap':                    'tenant governance administrator',
-    'granular delegated admin':'tenant governance administrator',
-    'csp admin':               'tenant governance administrator',
-    'msp admin':               'tenant governance administrator',
-    'partner access':          'tenant governance administrator',
-    'delegated admin':         'tenant governance administrator',
-    'dap':                     'tenant governance administrator',
-    'customer tenant':         'tenant governance administrator',
-    'managing customer tenants':'tenant governance administrator',
-    'gdap relationship':       'tenant governance relationship administrator',
-    'csp':                     'tenant governance',
-    'partner delegation':      'tenant governance',
+      // Applications & service principals
+      'app registration': 'application registration',
+      'app registrations': 'application registration',
+      'app reg': 'application registration',
+      'service principal': 'enterprise application service principal',
+      'sp': 'service principal enterprise application',
+      'enterprise app': 'enterprise application',
+      'saml': 'enterprise application single sign on',
+      'sso': 'single sign on enterprise application',
+      'single sign-on': 'single sign on enterprise application',
+      'oauth': 'application permission oauth',
+      'api permission': 'application permission consent',
+      'admin consent': 'application permission consent grant',
 
-    // Shadow / unlisted roles
-    'hidden roles':            'shadow role',
-    'undocumented roles':      'shadow role',
-    'new roles':               'shadow role',
-    'secret roles':            'shadow role',
-    'stealth roles':           'shadow role',
-    'graph only':              'shadow role',
-    'missing from docs':       'shadow role',
-    'not in docs':             'shadow role',
-    'unlisted roles':          'shadow role',
-    'unlisted':                'shadow role',
+      // Entitlement management & governance
+      'elm': 'entitlement management',
+      'entitlement': 'entitlement management access package',
+      'access package': 'entitlement management access package',
+      'access packages': 'entitlement management access package',
+      'manage access packages': 'entitlement management access package',
+      'access review': 'access reviews',
+      'lifecycle': 'lifecycle workflows identity governance',
+      'identity governance': 'entitlement management access reviews',
 
-    // Agent assignability
-    'role for agent':          'agent assignable',
-    'agent compatible':        'agent assignable',
-    'agent restrictions':      'agent blocked roles',
-    'blocked for agents':      'agent blocked roles',
-  };
+      // Devices
+      'mdm': 'mobile device management',
+      'device management': 'mobile device management intune',
+      'intune': 'mobile device management',
+      'aad join': 'azure ad join device',
+      'entra join': 'azure ad join device',
+      'hybrid join': 'hybrid azure ad joined device',
+      'bitlocker': 'bitlocker device encryption',
+      'compliance policy': 'device compliance intune',
 
-  // Words that appear inside multiple synonym expansion values but should
-  // NOT independently route queries. Keep this list in sync with the
-  // equivalent _REVERSE_MAP_STOPWORDS set in pipeline/synonyms.py
-  // (Chunk 4, 2026-04-25).
-  const REVERSE_MAP_STOPWORDS = new Set([
-    "access","account","accounts","active","all","and","any",
-    "application","applications","audit","based","between","block",
-    "can","cloud","configuration","connect","create","data",
-    "device","devices","directory","domain","edit","entra","every",
-    "factor","for","from","group","groups","id","identities",
-    "identity","in","information","into","issue","key","list",
-    "log","logs","manage","management","method","methods",
-    "microsoft","mobile","monitoring","name","new","not","of",
-    "on","or","out","own","policy","premises","principal",
-    "register","registration","reset","review","reviews","role",
-    "roles","secure","security","service","services","set",
-    "settings","shadow","sign","single","tenant","the","through",
-    "time","to","trust","two","use","user","users","via","with",
-    "workload","zero"
-  ]);
+      // Security & monitoring
+      'defender': 'microsoft defender security',
+      'identity protection': 'microsoft entra id protection risk',
+      'id protection': 'microsoft entra id protection risk',
+      'risky user': 'identity protection risk user',
+      'risky sign-in': 'identity protection risk sign in',
+      'sign in log': 'sign in logs audit',
+      'signin log': 'sign in logs audit',
+      'audit log': 'audit logs monitoring',
+      'diagnostic': 'diagnostic settings monitoring',
+      'siem': 'security information event management',
 
-  // Build reverse map: every word in any expansion value -> canonical expansion
-  // Stopword guard prevents common English words from hijacking queries.
-  const REVERSE_SYNONYMS = (() => {
-    const map = {};
-    for (const [key, expansion] of Object.entries(SYNONYMS)) {
-      map[key.toLowerCase()] = expansion;
-      for (const word of expansion.split(/\s+/)) {
-        const lw = word.toLowerCase();
-        if (
-          word.length >= 3
-          && !map[lw]
-          && !REVERSE_MAP_STOPWORDS.has(lw)
-        ) {
-          map[lw] = expansion;
+      // Directory & users
+      'aad': 'azure active directory',
+      'azure ad': 'microsoft entra id',
+      'entra id': 'microsoft entra id',
+      'directory role': 'directory role assignment',
+      'admin unit': 'administrative unit',
+      'administrative unit': 'administrative unit',
+      'administrative units': 'administrative unit',
+      'manage administrative units': 'administrative unit',
+      'scoped admin': 'administrative unit',
+      'au': 'administrative unit',
+      'bulk user': 'bulk create import users',
+      'manage groups': 'group membership management',
+      'dynamic group': 'dynamic membership group',
+      'dynamic membership': 'dynamic membership group',
+      'license': 'license assignment',
+      'license assignment': 'license assignment',
+
+      // Networking & hybrid
+      'ad connect': 'azure ad connect hybrid',
+      'azure ad connect': 'azure ad connect hybrid sync',
+      'adc': 'azure ad connect',
+      'hybrid': 'hybrid azure ad connect on premises',
+      'on-premises': 'on premises directory sync',
+      'on prem': 'on premises directory sync',
+      'password hash sync': 'password hash synchronization azure ad connect',
+      'phs': 'password hash synchronization',
+      'pts': 'pass through authentication',
+      'pass-through': 'pass through authentication',
+      'pta': 'pass through authentication',
+      'federation': 'federated identity federation',
+      'adfs': 'active directory federation services',
+
+      // Misc Entra features
+      'verified id': 'verifiable credentials',
+      'verifiable credential': 'verifiable credentials',
+      'workload identity': 'workload identity federated credential',
+      'managed identity': 'managed identity workload',
+      'custom domain': 'custom domain name dns',
+      'tenant': 'tenant settings configuration',
+      'terms of use': 'terms of use compliance',
+      'tou': 'terms of use',
+
+      // Agent identity
+      'manage ai agents': 'agent identity',
+      'ai agent management': 'agent identity',
+      'agent management': 'agent identity',
+      'ai agent': 'agent identity',
+      'copilot agent': 'agent identity',
+      'bot identity': 'agent identity',
+      'bot': 'agent identity',
+      'nhi': 'agent identity',
+      'non-human identity': 'agent identity',
+      'nonhuman identity': 'agent identity',
+      'machine identity': 'agent identity',
+      'agentic identity': 'agent identity',
+      'genai identity': 'agent identity',
+      'llm agent': 'agent identity',
+      'autonomous agent': 'agent identity',
+      'blueprint': 'agent identity blueprint',
+      'agent blueprint': 'agent identity blueprint',
+      'agent id': 'agent identity',
+      'sponsor': 'agent sponsor',
+      'agent owner': 'agent sponsor',
+      'agent registry': 'agent registry administrator',
+      'agent rbac': 'agent id administrator',
+      'govern agents': 'agent id administrator',
+      'service account': 'service principal',
+      'svc account': 'service principal',
+      'robot account': 'service principal',
+      'nhi governance': 'nonhuman identity',
+      'orphaned agent': 'agent identity',
+      'ownerless agent': 'agent identity',
+      'hybrid identity admin': 'entra connect administrator',
+      'entra connect admin': 'entra connect administrator',
+      'passkey admin': 'authentication administrator',
+      'fido admin': 'authentication administrator',
+      'external user admin': 'guest inviter',
+      'guest admin': 'guest inviter',
+      'pim for groups': 'privileged access administrator',
+      'privileged access group': 'privileged access administrator',
+      'eligible group member': 'privileged identity management',
+
+      // AI governance
+      'copilot admin': 'ai administrator',
+      'copilot rbac': 'ai administrator',
+      'ai rbac': 'ai administrator',
+      'copilot permissions': 'ai administrator',
+      'copilot governance': 'copilot governance',
+      'm365 copilot admin': 'ai administrator',
+      'ai audit': 'ai reader',
+      'copilot audit': 'ai reader',
+      'ai read-only': 'ai reader',
+      'genai admin': 'ai administrator',
+      'llm admin': 'ai administrator',
+      'copilot': 'ai administrator',
+      'm365 copilot': 'ai administrator',
+      'ai governance': 'ai administrator',
+      'ai admin': 'ai administrator',
+      'openai admin': 'ai administrator',
+      'chatgpt admin': 'ai administrator',
+      'ai reader': 'ai reader',
+      'govern copilot': 'ai administrator',
+
+      // Backup and recovery
+      'backup': 'entra backup administrator',
+      'entra backup': 'entra backup administrator',
+      'tenant backup': 'entra backup administrator',
+      'directory backup': 'entra backup administrator',
+      'entra restore': 'entra backup administrator',
+      'tenant restore': 'entra backup administrator',
+      'disaster recovery': 'entra backup administrator',
+      'dr': 'entra backup administrator',
+      'bcdr': 'entra backup administrator',
+      'recover deleted': 'entra backup administrator',
+      'undelete': 'entra backup administrator',
+      'rollback': 'entra backup administrator',
+      'recovery': 'entra backup administrator',
+      'backup admin': 'entra backup administrator',
+      'entra dr': 'entra backup administrator',
+      'restore entra': 'entra backup administrator',
+      'recover deleted users': 'entra backup administrator',
+      'recover deleted groups': 'entra backup administrator',
+
+      // GDAP and tenant governance
+      'gdap relationships': 'gdap relationships partners',
+      'gdap': 'tenant governance administrator',
+      'granular delegated admin': 'tenant governance administrator',
+      'csp admin': 'tenant governance administrator',
+      'msp admin': 'tenant governance administrator',
+      'partner access': 'tenant governance administrator',
+      'delegated admin': 'tenant governance administrator',
+      'dap': 'tenant governance administrator',
+      'customer tenant': 'tenant governance administrator',
+      'managing customer tenants': 'tenant governance administrator',
+      'gdap relationship': 'tenant governance relationship administrator',
+      'csp': 'tenant governance',
+      'partner delegation': 'tenant governance',
+
+      // Shadow / unlisted roles
+      'hidden roles': 'shadow role',
+      'undocumented roles': 'shadow role',
+      'new roles': 'shadow role',
+      'secret roles': 'shadow role',
+      'stealth roles': 'shadow role',
+      'graph only': 'shadow role',
+      'missing from docs': 'shadow role',
+      'not in docs': 'shadow role',
+      'unlisted roles': 'shadow role',
+      'unlisted': 'shadow role',
+
+      // Agent assignability
+      'role for agent': 'agent assignable',
+      'agent compatible': 'agent assignable',
+      'agent restrictions': 'agent blocked roles',
+      'blocked for agents': 'agent blocked roles',
+    };
+
+    // Words that appear inside multiple synonym expansion values but should
+    // NOT independently route queries. Keep this list in sync with the
+    // equivalent _REVERSE_MAP_STOPWORDS set in pipeline/synonyms.py
+    // (Chunk 4, 2026-04-25).
+    const REVERSE_MAP_STOPWORDS = new Set([
+      "access", "account", "accounts", "active", "all", "and", "any",
+      "application", "applications", "audit", "based", "between", "block",
+      "can", "cloud", "configuration", "connect", "create", "data",
+      "device", "devices", "directory", "domain", "edit", "entra", "every",
+      "factor", "for", "from", "group", "groups", "id", "identities",
+      "identity", "in", "information", "into", "issue", "key", "list",
+      "log", "logs", "manage", "management", "method", "methods",
+      "microsoft", "mobile", "monitoring", "name", "new", "not", "of",
+      "on", "or", "out", "own", "policy", "premises", "principal",
+      "register", "registration", "reset", "review", "reviews", "role",
+      "roles", "secure", "security", "service", "services", "set",
+      "settings", "shadow", "sign", "single", "tenant", "the", "through",
+      "time", "to", "trust", "two", "use", "user", "users", "via", "with",
+      "workload", "zero"
+    ]);
+
+    // Build reverse map: every word in any expansion value -> canonical expansion
+    // Stopword guard prevents common English words from hijacking queries.
+    const REVERSE_SYNONYMS = (() => {
+      const map = {};
+      for (const [key, expansion] of Object.entries(SYNONYMS)) {
+        map[key.toLowerCase()] = expansion;
+        for (const word of expansion.split(/\s+/)) {
+          const lw = word.toLowerCase();
+          if (
+            word.length >= 3
+            && !map[lw]
+            && !REVERSE_MAP_STOPWORDS.has(lw)
+          ) {
+            map[lw] = expansion;
+          }
         }
       }
+      return map;
+    })();
+
+    function expandQuery(input) {
+      const lower = input.toLowerCase().trim();
+
+      // 1. Exact key match (e.g. "PIM", "MFA")
+      if (SYNONYMS[lower]) return SYNONYMS[lower];
+
+      // 2. Key contained within input (e.g. "configure PIM" → replace "PIM")
+      for (const [key, expansion] of Object.entries(SYNONYMS)) {
+        const pattern = new RegExp(`\\b${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        if (pattern.test(lower)) {
+          return lower.replace(pattern, expansion);
+        }
+      }
+
+      // 3. Any word in the input matches a reverse-synonym
+      const words = lower.split(/\s+/);
+      for (const word of words) {
+        if (REVERSE_SYNONYMS[word]) return REVERSE_SYNONYMS[word];
+      }
+
+      // 4. No match — return original
+      return input;
     }
-    return map;
-  })();
 
-  function expandQuery(input) {
-    const lower = input.toLowerCase().trim();
+    // ── Search mode ──────────────────────────────────────────────────────
+    let searchTimer = null;
 
-    // 1. Exact key match (e.g. "PIM", "MFA")
-    if (SYNONYMS[lower]) return SYNONYMS[lower];
+    document.getElementById('search-input').addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      const q = this.value.trim();
+      const expandedQuery = expandQuery(q);
+      const hasSynonym = expandedQuery !== q;
 
-    // 2. Key contained within input (e.g. "configure PIM" → replace "PIM")
-    for (const [key, expansion] of Object.entries(SYNONYMS)) {
-      const pattern = new RegExp(`\\b${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-      if (pattern.test(lower)) {
-        return lower.replace(pattern, expansion);
+      // Show/hide explainer and pills based on input presence
+      const typing = q.length >= 2;
+      document.getElementById('explainer-grid')?.classList.toggle('hidden', typing);
+      document.getElementById('how-to-use')?.classList.toggle('hidden', typing);
+      document.getElementById('example-pills')?.classList.toggle('hidden', typing);
+      const wnPanel = document.getElementById('whats-new-panel');
+      if (wnPanel && !wnPanel.classList.contains('hidden')) {
+        wnPanel.style.display = typing ? 'none' : '';
+      }
+
+      // Update expansion hint
+      const hint = document.getElementById('search-hint');
+      if (hint) {
+        hint.textContent = '';
+        if (typing && hasSynonym) {
+          const prefix = document.createTextNode('Searching for: ');
+          const span = document.createElement('span');
+          span.textContent = expandedQuery;
+          span.className = 'hint-accent';
+          hint.appendChild(prefix);
+          hint.appendChild(span);
+        } else if (q.length === 3 && !hasSynonym) {
+          hint.textContent = 'Partial match — keep typing for better results';
+        }
+      }
+
+      // Clear results if not enough input (1-2 chars, no synonym)
+      if (q.length <= 2 && !hasSynonym) {
+        setSearchResults('');
+        return;
+      }
+
+      showSkeleton();
+      searchTimer = setTimeout(() => doSearch(expandedQuery, q), 350);
+    });
+
+    // ── Example pill search ──────────────────────────────────────────────
+    function runPillSearch(q) {
+      const input = document.getElementById('search-input');
+      input.value = q;
+      input.dispatchEvent(new Event('input'));
+      input.focus();
+    }
+
+    async function doSearch(q, src = q) {
+      try {
+        const url = src !== q
+          ? `${API}/api/search?q=${encodeURIComponent(q)}&src=${encodeURIComponent(src)}`
+          : `${API}/api/search?q=${encodeURIComponent(q)}`;
+        const res = await fetch(url);
+        const results = await res.json();
+        renderResults(results);
+      } catch {
+        setSearchResults('<p class="state-msg">Error connecting to API</p>');
       }
     }
 
-    // 3. Any word in the input matches a reverse-synonym
-    const words = lower.split(/\s+/);
-    for (const word of words) {
-      if (REVERSE_SYNONYMS[word]) return REVERSE_SYNONYMS[word];
-    }
-
-    // 4. No match — return original
-    return input;
-  }
-
-  // ── Search mode ──────────────────────────────────────────────────────
-  let searchTimer = null;
-
-  document.getElementById('search-input').addEventListener('input', function () {
-    clearTimeout(searchTimer);
-    const q = this.value.trim();
-    const expandedQuery = expandQuery(q);
-    const hasSynonym = expandedQuery !== q;
-
-    // Show/hide explainer and pills based on input presence
-    const typing = q.length >= 2;
-    document.getElementById('explainer-grid')?.classList.toggle('hidden', typing);
-    document.getElementById('how-to-use')?.classList.toggle('hidden', typing);
-    document.getElementById('example-pills')?.classList.toggle('hidden', typing);
-    const wnPanel = document.getElementById('whats-new-panel');
-    if (wnPanel && !wnPanel.classList.contains('hidden')) {
-      wnPanel.style.display = typing ? 'none' : '';
-    }
-
-    // Update expansion hint
-    const hint = document.getElementById('search-hint');
-    if (hint) {
-      hint.textContent = '';
-      if (typing && hasSynonym) {
-        const prefix = document.createTextNode('Searching for: ');
-        const span = document.createElement('span');
-        span.textContent = expandedQuery;
-        span.className = 'hint-accent';
-        hint.appendChild(prefix);
-        hint.appendChild(span);
-      } else if (q.length === 3 && !hasSynonym) {
-        hint.textContent = 'Partial match — keep typing for better results';
-      }
-    }
-
-    // Clear results if not enough input (1-2 chars, no synonym)
-    if (q.length <= 2 && !hasSynonym) {
-      setSearchResults('');
-      return;
-    }
-
-    showSkeleton();
-    searchTimer = setTimeout(() => doSearch(expandedQuery, q), 350);
-  });
-
-  // ── Example pill search ──────────────────────────────────────────────
-  function runPillSearch(q) {
-    const input = document.getElementById('search-input');
-    input.value = q;
-    input.dispatchEvent(new Event('input'));
-    input.focus();
-  }
-
-  async function doSearch(q, src = q) {
-    try {
-      const url = src !== q
-        ? `${API}/api/search?q=${encodeURIComponent(q)}&src=${encodeURIComponent(src)}`
-        : `${API}/api/search?q=${encodeURIComponent(q)}`;
-      const res = await fetch(url);
-      const results = await res.json();
-      renderResults(results);
-    } catch {
-      setSearchResults('<p class="state-msg">Error connecting to API</p>');
-    }
-  }
-
-  function showSkeleton() {
-    setSearchResults(`
+    function showSkeleton() {
+      setSearchResults(`
       <div class="skeleton-card">
         <div class="skel-line w40"></div>
         <div class="skel-line w80"></div>
@@ -2200,64 +2837,64 @@
         <div class="skel-line w60"></div>
       </div>
     `);
-  }
+    }
 
-  // Canonical "new" window: a role shows as NEW (badge in search + diff) for
-  // this many days after it was added — also the What's-new panel history span.
-  // (The 24h "fresh" dot is a separate finer signal; coverage uses its own
-  // longer lead-time window server-side.)
-  // Mirror this value in pipeline/push_to_cloudflare.py (README "What's new" feed).
-  const NEW_ROLE_DAYS = 30;
-  const _newRoleIds = new Set();
-  function isNewRole(roleId) {
-    return roleId ? _newRoleIds.has(roleId) : false;
-  }
+    // Canonical "new" window: a role shows as NEW (badge in search + diff) for
+    // this many days after it was added — also the What's-new panel history span.
+    // (The 24h "fresh" dot is a separate finer signal; coverage uses its own
+    // longer lead-time window server-side.)
+    // Mirror this value in pipeline/push_to_cloudflare.py (README "What's new" feed).
+    const NEW_ROLE_DAYS = 30;
+    const _newRoleIds = new Set();
+    function isNewRole(roleId) {
+      return roleId ? _newRoleIds.has(roleId) : false;
+    }
 
-  const NEW_BADGE = `<span style="background:#00E5A3;color:#07080D;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle">NEW</span>`;
+    const NEW_BADGE = `<span style="background:#00E5A3;color:#07080D;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle">NEW</span>`;
 
-  function renderCardPermissions(r) {
-    if (!r.relevant_permissions || r.relevant_permissions.length === 0) return '';
-    const MAX_SHOWN = 3;
-    const shown = r.relevant_permissions.slice(0, MAX_SHOWN);
-    const remainder = r.relevant_permissions.length - MAX_SHOWN;
-    const items = shown.map(p => {
-      const lastSlash = p.lastIndexOf('/');
-      const ns     = lastSlash >= 0 ? esc(p.slice(0, lastSlash + 1)) : '';
-      const action = lastSlash >= 0 ? esc(p.slice(lastSlash + 1))    : esc(p);
-      return `<div class="card-perm-item"><span class="perm-path-ns">${ns}</span><span class="perm-path-action">${action}</span></div>`;
-    }).join('');
-    const moreLink = remainder > 0
-      ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener" class="card-perm-viewall">View all ${r.relevant_permissions.length} permissions →</a>`
-      : '';
-    return `
+    function renderCardPermissions(r) {
+      if (!r.relevant_permissions || r.relevant_permissions.length === 0) return '';
+      const MAX_SHOWN = 3;
+      const shown = r.relevant_permissions.slice(0, MAX_SHOWN);
+      const remainder = r.relevant_permissions.length - MAX_SHOWN;
+      const items = shown.map(p => {
+        const lastSlash = p.lastIndexOf('/');
+        const ns = lastSlash >= 0 ? esc(p.slice(0, lastSlash + 1)) : '';
+        const action = lastSlash >= 0 ? esc(p.slice(lastSlash + 1)) : esc(p);
+        return `<div class="card-perm-item"><span class="perm-path-ns">${ns}</span><span class="perm-path-action">${action}</span></div>`;
+      }).join('');
+      const moreLink = remainder > 0
+        ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener" class="card-perm-viewall">View all ${r.relevant_permissions.length} permissions →</a>`
+        : '';
+      return `
       <div class="card-section">
         <div class="card-section-label">Top permissions</div>
         <div class="card-perms-list">${items}</div>
         ${moreLink}
       </div>`;
-  }
+    }
 
-  function renderCardAlternatives(r) {
-    if (!r.alt_roles_enriched || r.alt_roles_enriched.length === 0) return '';
-    const items = r.alt_roles_enriched.map(a => `
+    function renderCardAlternatives(r) {
+      if (!r.alt_roles_enriched || r.alt_roles_enriched.length === 0) return '';
+      const items = r.alt_roles_enriched.map(a => `
       <div class="card-alt-item">
         <span class="alt-name">${esc(a.name)}</span>
         ${a.description ? `<span class="alt-desc">${esc(a.description)}</span>` : ''}
       </div>`).join('');
-    return `
+      return `
       <div class="card-section">
         <div class="card-section-label">Alternative roles</div>
         <div class="card-alts-list">${items}</div>
       </div>`;
-  }
+    }
 
-  function renderCardSnippet(r, idx) {
-    const snippetId = `snip-${idx}`;
-    const btnId     = `copy-btn-${idx}`;
-    const roleName  = esc(r.min_role);
-    const task      = esc(r.task);
-    const roleId    = r.min_role_id || '';
-    return `
+    function renderCardSnippet(r, idx) {
+      const snippetId = `snip-${idx}`;
+      const btnId = `copy-btn-${idx}`;
+      const roleName = esc(r.min_role);
+      const task = esc(r.task);
+      const roleId = r.min_role_id || '';
+      return `
       <div class="card-snippet">
         <div class="card-snippet-header">
           <span class="card-snippet-label">Graph API request</span>
@@ -2274,58 +2911,58 @@ Content-Type: application/json
   "directoryScopeId": "/"
 }</pre>
       </div>`;
-  }
+    }
 
-  function toggleCardDetails(idx) {
-    const details = document.getElementById(`card-details-${idx}`);
-    const btn     = document.getElementById(`card-expand-${idx}`);
-    if (!details || !btn) return;
-    const expanded = !details.hidden;
-    const apply = () => {
-      details.hidden = expanded;
-      btn.textContent = expanded ? 'Show details ▾' : 'Hide details ▴';
-    };
-    if (document.startViewTransition) { document.startViewTransition(apply); } else { apply(); }
-  }
+    function toggleCardDetails(idx) {
+      const details = document.getElementById(`card-details-${idx}`);
+      const btn = document.getElementById(`card-expand-${idx}`);
+      if (!details || !btn) return;
+      const expanded = !details.hidden;
+      const apply = () => {
+        details.hidden = expanded;
+        btn.textContent = expanded ? 'Show details ▾' : 'Hide details ▴';
+      };
+      if (document.startViewTransition) { document.startViewTransition(apply); } else { apply(); }
+    }
 
-  function copySnippet(snippetId, btnId) {
-    const pre = document.getElementById(snippetId);
-    if (!pre) return;
-    const text = pre.textContent;
-    const btn  = document.getElementById(btnId);
-    navigator.clipboard.writeText(text).then(() => {
-      if (btn) { btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = 'Copy'; }, 2000); }
-    }).catch(() => {
-      const range = document.createRange();
-      range.selectNodeContents(pre);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    });
-  }
+    function copySnippet(snippetId, btnId) {
+      const pre = document.getElementById(snippetId);
+      if (!pre) return;
+      const text = pre.textContent;
+      const btn = document.getElementById(btnId);
+      navigator.clipboard.writeText(text).then(() => {
+        if (btn) { btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = 'Copy'; }, 2000); }
+      }).catch(() => {
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+    }
 
-  function renderResultCard(r, idx, results) {
-    const isBestMatch = idx === 0
-      && (results.length === 1 || (results[0].score || 0) >= (results[1].score || 0) * 1.5);
-    const privBadge = r.is_privileged
-      ? `<span class="badge-privileged">⚠ PRIVILEGED</span>`
-      : '';
-    const newBadge  = isNewRole(r.role_id) ? NEW_BADGE : '';
-    const bestBadge = isBestMatch ? `<span class="badge-best-match">Best match</span>` : '';
+    function renderResultCard(r, idx, results) {
+      const isBestMatch = idx === 0
+        && (results.length === 1 || (results[0].score || 0) >= (results[1].score || 0) * 1.5);
+      const privBadge = r.is_privileged
+        ? `<span class="badge-privileged">⚠ PRIVILEGED</span>`
+        : '';
+      const newBadge = isNewRole(r.role_id) ? NEW_BADGE : '';
+      const bestBadge = isBestMatch ? `<span class="badge-best-match">Best match</span>` : '';
 
-    const descHtml = r.min_role_description
-      ? `<div class="card-description">${esc(r.min_role_description)}</div>`
-      : '';
-    const reasoningHtml = r.match_reasoning
-      ? `<div class="card-reasoning">${esc(r.match_reasoning)}</div>`
-      : '';
-    const permsHtml    = renderCardPermissions(r);
-    const altsHtml     = renderCardAlternatives(r);
-    const snippetHtml  = renderCardSnippet(r, idx);
-    const cardClass    = idx === 0 ? 'result-card result-card--top' : 'result-card';
+      const descHtml = r.min_role_description
+        ? `<div class="card-description">${esc(r.min_role_description)}</div>`
+        : '';
+      const reasoningHtml = r.match_reasoning
+        ? `<div class="card-reasoning">${esc(r.match_reasoning)}</div>`
+        : '';
+      const permsHtml = renderCardPermissions(r);
+      const altsHtml = renderCardAlternatives(r);
+      const snippetHtml = renderCardSnippet(r, idx);
+      const cardClass = idx === 0 ? 'result-card result-card--top' : 'result-card';
 
-    if (idx === 0) {
-      return `
+      if (idx === 0) {
+        return `
         <div class="${cardClass}">
           <div class="card-top">
             <span class="badge-area">${esc(r.feature_area)}</span>
@@ -2343,10 +2980,10 @@ Content-Type: application/json
             <a href="${esc(r.source_url)}" target="_blank" rel="noopener" class="source-link">Microsoft Learn ↗</a>
           </div>
         </div>`;
-    } else {
-      const scoreText  = r.score != null ? `Score: ${r.score}` : '';
-      const reasonMeta = r.match_reasoning ? ` · ${r.match_reasoning}` : '';
-      return `
+      } else {
+        const scoreText = r.score != null ? `Score: ${r.score}` : '';
+        const reasonMeta = r.match_reasoning ? ` · ${r.match_reasoning}` : '';
+        return `
         <div class="${cardClass}">
           <div class="card-top">
             <span class="badge-area">${esc(r.feature_area)}</span>
@@ -2370,145 +3007,145 @@ Content-Type: application/json
             <a href="${esc(r.source_url)}" target="_blank" rel="noopener" class="source-link">Microsoft Learn ↗</a>
           </div>
         </div>`;
+      }
     }
-  }
 
-  function renderResults(results) {
-    if (!results || results.length === 0) {
-      setSearchResults(`
+    function renderResults(results) {
+      if (!results || results.length === 0) {
+        setSearchResults(`
         <p class="state-msg">
           No match found — <a href="${GH_ISSUES}" target="_blank" rel="noopener">contribute this task on GitHub →</a>
         </p>`);
-      return;
+        return;
+      }
+      setSearchResults(results.map((r, idx) => renderResultCard(r, idx, results)).join(''));
     }
-    setSearchResults(results.map((r, idx) => renderResultCard(r, idx, results)).join(''));
-  }
 
-  function setSearchResults(html) {
-    document.getElementById('search-results').innerHTML = html;
-  }
+    function setSearchResults(html) {
+      document.getElementById('search-results').innerHTML = html;
+    }
 
-  // ── Autocomplete ─────────────────────────────────────────────────────
-  function buildAutocomplete(inputId, listId, onSelect) {
-    const input = document.getElementById(inputId);
-    const list  = document.getElementById(listId);
-    let acIdx = -1;
+    // ── Autocomplete ─────────────────────────────────────────────────────
+    function buildAutocomplete(inputId, listId, onSelect) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      let acIdx = -1;
 
-    input.addEventListener('input', function () {
-      const q = this.value.trim().toLowerCase();
-      if (!q || allRoles.length === 0) { closeList(); return; }
+      input.addEventListener('input', function () {
+        const q = this.value.trim().toLowerCase();
+        if (!q || allRoles.length === 0) { closeList(); return; }
 
-      const matches = allRoles
-        .filter(r => r.display_name.toLowerCase().includes(q))
-        .slice(0, 12);
+        const matches = allRoles
+          .filter(r => r.display_name.toLowerCase().includes(q))
+          .slice(0, 12);
 
-      if (matches.length === 0) { closeList(); return; }
+        if (matches.length === 0) { closeList(); return; }
 
-      list.innerHTML = matches.map((r, i) =>
-        `<div class="ac-item" data-name="${esc(r.display_name)}" data-idx="${i}">
+        list.innerHTML = matches.map((r, i) =>
+          `<div class="ac-item" data-name="${esc(r.display_name)}" data-idx="${i}">
           <span class="ac-item-name">${esc(r.display_name)}</span>
           ${r.is_privileged ? '<span class="ac-priv">Privileged</span>' : ''}
         </div>`
-      ).join('');
+        ).join('');
 
-      list.querySelectorAll('.ac-item').forEach(item => {
-        item.addEventListener('mousedown', e => {
-          e.preventDefault();
-          pickItem(item.dataset.name);
+        list.querySelectorAll('.ac-item').forEach(item => {
+          item.addEventListener('mousedown', e => {
+            e.preventDefault();
+            pickItem(item.dataset.name);
+          });
         });
+
+        list.classList.add('open');
+        acIdx = -1;
       });
 
-      list.classList.add('open');
-      acIdx = -1;
-    });
+      input.addEventListener('keydown', function (e) {
+        const items = list.querySelectorAll('.ac-item');
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          acIdx = Math.min(acIdx + 1, items.length - 1);
+          highlightAc(items, acIdx);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          acIdx = Math.max(acIdx - 1, 0);
+          highlightAc(items, acIdx);
+        } else if (e.key === 'Enter' && acIdx >= 0) {
+          e.preventDefault();
+          pickItem(items[acIdx].dataset.name);
+        } else if (e.key === 'Escape') {
+          closeList();
+        }
+      });
 
-    input.addEventListener('keydown', function (e) {
-      const items = list.querySelectorAll('.ac-item');
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        acIdx = Math.min(acIdx + 1, items.length - 1);
-        highlightAc(items, acIdx);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        acIdx = Math.max(acIdx - 1, 0);
-        highlightAc(items, acIdx);
-      } else if (e.key === 'Enter' && acIdx >= 0) {
-        e.preventDefault();
-        pickItem(items[acIdx].dataset.name);
-      } else if (e.key === 'Escape') {
-        closeList();
+      input.addEventListener('blur', () => setTimeout(closeList, 150));
+
+      function closeList() { list.classList.remove('open'); list.innerHTML = ''; acIdx = -1; }
+      function highlightAc(items, idx) {
+        items.forEach((el, i) => el.classList.toggle('selected', i === idx));
       }
+      function pickItem(name) {
+        input.value = name;
+        onSelect(name);
+        closeList();
+        updateCompareBtn();
+      }
+    }
+
+    buildAutocomplete('role-a-input', 'ac-list-a', name => { selectedRoleA = name; });
+    buildAutocomplete('role-b-input', 'ac-list-b', name => { selectedRoleB = name; });
+
+    // Also allow clearing selection on manual edit
+    document.getElementById('role-a-input').addEventListener('input', () => {
+      selectedRoleA = null; updateCompareBtn();
+    });
+    document.getElementById('role-b-input').addEventListener('input', () => {
+      selectedRoleB = null; updateCompareBtn();
     });
 
-    input.addEventListener('blur', () => setTimeout(closeList, 150));
-
-    function closeList() { list.classList.remove('open'); list.innerHTML = ''; acIdx = -1; }
-    function highlightAc(items, idx) {
-      items.forEach((el, i) => el.classList.toggle('selected', i === idx));
-    }
-    function pickItem(name) {
-      input.value = name;
-      onSelect(name);
-      closeList();
-      updateCompareBtn();
-    }
-  }
-
-  buildAutocomplete('role-a-input', 'ac-list-a', name => { selectedRoleA = name; });
-  buildAutocomplete('role-b-input', 'ac-list-b', name => { selectedRoleB = name; });
-
-  // Also allow clearing selection on manual edit
-  document.getElementById('role-a-input').addEventListener('input', () => {
-    selectedRoleA = null; updateCompareBtn();
-  });
-  document.getElementById('role-b-input').addEventListener('input', () => {
-    selectedRoleB = null; updateCompareBtn();
-  });
-
-  function updateCompareBtn() {
-    document.getElementById('compare-btn').disabled = !(selectedRoleA && selectedRoleB);
-  }
-
-  // ── Role Diff ────────────────────────────────────────────────────────
-  async function runDiff() {
-    if (!selectedRoleA || !selectedRoleB) return;
-    const btn = document.getElementById('compare-btn');
-    btn.textContent = 'Comparing…';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch(
-        `${API}/api/diff?a=${encodeURIComponent(selectedRoleA)}&b=${encodeURIComponent(selectedRoleB)}`
-      );
-      const d = await res.json();
-      if (d.error) throw new Error(d.error);
-      renderDiff(d);
-    } catch (err) {
-      document.getElementById('diff-results').innerHTML =
-        `<p class="state-msg">Error: ${esc(err.message)}</p>`;
-      document.getElementById('diff-results').classList.add('visible');
-    } finally {
-      btn.textContent = 'Compare';
-      btn.disabled = false;
-    }
-  }
-
-  function renderDiff(d) {
-    const ra = d.role_a;
-    const rb = d.role_b;
-
-    const summaryEl = document.getElementById('diff-summary');
-    if (summaryEl) {
-      const newBadgeSumA = isNewRole(ra.id) ? NEW_BADGE : '';
-      const newBadgeSumB = isNewRole(rb.id) ? NEW_BADGE : '';
-      summaryEl.innerHTML =
-        `${esc(ra.display_name)}${newBadgeSumA} (${ra.permission_count} permissions) vs ${esc(rb.display_name)}${newBadgeSumB} (${rb.permission_count} permissions)`;
+    function updateCompareBtn() {
+      document.getElementById('compare-btn').disabled = !(selectedRoleA && selectedRoleB);
     }
 
-    const newBadgeA = isNewRole(ra.id) ? NEW_BADGE : '';
-    const newBadgeB = isNewRole(rb.id) ? NEW_BADGE : '';
+    // ── Role Diff ────────────────────────────────────────────────────────
+    async function runDiff() {
+      if (!selectedRoleA || !selectedRoleB) return;
+      const btn = document.getElementById('compare-btn');
+      btn.textContent = 'Comparing…';
+      btn.disabled = true;
 
-    document.getElementById('diff-header').innerHTML = `
+      try {
+        const res = await fetch(
+          `${API}/api/diff?a=${encodeURIComponent(selectedRoleA)}&b=${encodeURIComponent(selectedRoleB)}`
+        );
+        const d = await res.json();
+        if (d.error) throw new Error(d.error);
+        renderDiff(d);
+      } catch (err) {
+        document.getElementById('diff-results').innerHTML =
+          `<p class="state-msg">Error: ${esc(err.message)}</p>`;
+        document.getElementById('diff-results').classList.add('visible');
+      } finally {
+        btn.textContent = 'Compare';
+        btn.disabled = false;
+      }
+    }
+
+    function renderDiff(d) {
+      const ra = d.role_a;
+      const rb = d.role_b;
+
+      const summaryEl = document.getElementById('diff-summary');
+      if (summaryEl) {
+        const newBadgeSumA = isNewRole(ra.id) ? NEW_BADGE : '';
+        const newBadgeSumB = isNewRole(rb.id) ? NEW_BADGE : '';
+        summaryEl.innerHTML =
+          `${esc(ra.display_name)}${newBadgeSumA} (${ra.permission_count} permissions) vs ${esc(rb.display_name)}${newBadgeSumB} (${rb.permission_count} permissions)`;
+      }
+
+      const newBadgeA = isNewRole(ra.id) ? NEW_BADGE : '';
+      const newBadgeB = isNewRole(rb.id) ? NEW_BADGE : '';
+
+      document.getElementById('diff-header').innerHTML = `
       <div class="diff-col-header">
         <div class="col-label only-a">Only in ${esc(ra.display_name)}${newBadgeA} (${d.only_in_a.length})</div>
         <div class="col-count">${d.only_in_a.length} unique permissions</div>
@@ -2522,10 +3159,10 @@ Content-Type: application/json
         <div class="col-count">${d.only_in_b.length} unique permissions</div>
       </div>`;
 
-    document.getElementById('diff-grid').innerHTML = `
+      document.getElementById('diff-grid').innerHTML = `
       <div class="diff-col">
         <div class="diff-col-inner">${d.only_in_a.map(p =>
-          `<div class="diff-perm only-a">${esc(p)}</div>`).join('') || '<div class="diff-perm shared" style="opacity:.4;text-align:center">none</div>'}
+        `<div class="diff-perm only-a">${esc(p)}</div>`).join('') || '<div class="diff-perm shared" style="opacity:.4;text-align:center">none</div>'}
         </div>
       </div>
       <div class="diff-col">
@@ -2535,62 +3172,62 @@ Content-Type: application/json
       </div>
       <div class="diff-col">
         <div class="diff-col-inner">${d.only_in_b.map(p =>
-          `<div class="diff-perm only-b">${esc(p)}</div>`).join('') || '<div class="diff-perm shared" style="opacity:.4;text-align:center">none</div>'}
+            `<div class="diff-perm only-b">${esc(p)}</div>`).join('') || '<div class="diff-perm shared" style="opacity:.4;text-align:center">none</div>'}
         </div>
       </div>`;
 
-    document.getElementById('diff-results').classList.add('visible');
-    document.getElementById('diff-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ── Diff example pills ───────────────────────────────────────────────
-  function runDiffPill(a, b) {
-    document.getElementById('role-a-input').value = a;
-    document.getElementById('role-b-input').value = b;
-    selectedRoleA = a;
-    selectedRoleB = b;
-    updateCompareBtn();
-    runDiff();
-  }
-
-  // ── GitHub stats ─────────────────────────────────────────────────────
-  let ghStatsCache = null;
-
-  async function loadGitHubStats() {
-    const el = document.getElementById('gh-stats');
-    if (!el) return;
-    try {
-      if (ghStatsCache) { renderGhStats(ghStatsCache); return; }
-      const [repoRes, commitsRes] = await Promise.all([
-        fetch('https://api.github.com/repos/arusso-aboutcloud/entra-rolelens',
-          { headers: { 'Accept': 'application/vnd.github.v3+json' } }),
-        fetch('https://api.github.com/repos/arusso-aboutcloud/entra-rolelens/commits?per_page=1',
-          { headers: { 'Accept': 'application/vnd.github.v3+json' } })
-      ]);
-      const repo    = await repoRes.json();
-      const commits = await commitsRes.json();
-      ghStatsCache = {
-        stars:      repo.stargazers_count ?? 0,
-        forks:      repo.forks_count ?? 0,
-        issues:     repo.open_issues_count ?? 0,
-        lastCommit: commits[0]?.commit?.committer?.date ?? commits[0]?.commit?.author?.date ?? null
-      };
-      renderGhStats(ghStatsCache);
-    } catch {
-      if (el) el.style.display = 'none';
+      document.getElementById('diff-results').classList.add('visible');
+      document.getElementById('diff-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
 
-  function renderGhStats(stats) {
-    const el = document.getElementById('gh-stats');
-    if (!el) return;
-    const now = new Date();
-    let commitStr = '—';
-    if (stats.lastCommit) {
-      const days = Math.floor((now - new Date(stats.lastCommit)) / 86400000);
-      commitStr = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
+    // ── Diff example pills ───────────────────────────────────────────────
+    function runDiffPill(a, b) {
+      document.getElementById('role-a-input').value = a;
+      document.getElementById('role-b-input').value = b;
+      selectedRoleA = a;
+      selectedRoleB = b;
+      updateCompareBtn();
+      runDiff();
     }
-    el.innerHTML = `
+
+    // ── GitHub stats ─────────────────────────────────────────────────────
+    let ghStatsCache = null;
+
+    async function loadGitHubStats() {
+      const el = document.getElementById('gh-stats');
+      if (!el) return;
+      try {
+        if (ghStatsCache) { renderGhStats(ghStatsCache); return; }
+        const [repoRes, commitsRes] = await Promise.all([
+          fetch('https://api.github.com/repos/arusso-aboutcloud/entra-rolelens',
+            { headers: { 'Accept': 'application/vnd.github.v3+json' } }),
+          fetch('https://api.github.com/repos/arusso-aboutcloud/entra-rolelens/commits?per_page=1',
+            { headers: { 'Accept': 'application/vnd.github.v3+json' } })
+        ]);
+        const repo = await repoRes.json();
+        const commits = await commitsRes.json();
+        ghStatsCache = {
+          stars: repo.stargazers_count ?? 0,
+          forks: repo.forks_count ?? 0,
+          issues: repo.open_issues_count ?? 0,
+          lastCommit: commits[0]?.commit?.committer?.date ?? commits[0]?.commit?.author?.date ?? null
+        };
+        renderGhStats(ghStatsCache);
+      } catch {
+        if (el) el.style.display = 'none';
+      }
+    }
+
+    function renderGhStats(stats) {
+      const el = document.getElementById('gh-stats');
+      if (!el) return;
+      const now = new Date();
+      let commitStr = '—';
+      if (stats.lastCommit) {
+        const days = Math.floor((now - new Date(stats.lastCommit)) / 86400000);
+        commitStr = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
+      }
+      el.innerHTML = `
       <a href="https://github.com/arusso-aboutcloud/entra-rolelens" target="_blank" rel="noopener" class="gh-stats-link" aria-label="GitHub repo">
         <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
       </a>
@@ -2601,379 +3238,380 @@ Content-Type: application/json
       <span class="gh-stat">Issues: ${stats.issues} open</span>
       <span class="gh-stat-sep">·</span>
       <span class="gh-stat">Last commit: ${commitStr}</span>`;
-  }
-
-  // ── Utility ──────────────────────────────────────────────────────────
-  function esc(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
-  // ── What's New panel ─────────────────────────────────────────────────
-  const CHANGELOG_URL = '/data/changelog.json';
-  const _WN_GLYPHS      = { ADDED: '✦', REMOVED: '⊘', MODIFIED: '◆' };
-  const _WN_GLYPH_CLASS = { ADDED: 'added', REMOVED: 'removed', MODIFIED: 'modified' };
-  const _WN_PREVIEW     = 5;
-  const _WN_PERM_CAP    = 8;   // permissions shown per group before "+N more"
-  let   _wnUid          = 0;
-
-  // Accurate label for the change, derived from the field that actually
-  // changed — not a blanket "permissions updated".
-  // Permission add/remove counts: from the stored name arrays when present,
-  // otherwise parsed from the historical "N permissions added" detail string.
-  function _wnCounts(c) {
-    let added   = c.added_permissions?.length   ?? null;
-    let removed = c.removed_permissions?.length ?? null;
-    if (added === null && removed === null) {
-      const ma = (c.detail || '').match(/(\d+)\s+permissions?\s+added/);
-      const mr = (c.detail || '').match(/(\d+)\s+permissions?\s+removed/);
-      added   = ma ? +ma[1] : 0;
-      removed = mr ? +mr[1] : 0;
     }
-    return { added: added || 0, removed: removed || 0 };
-  }
 
-  // Summary-row label. Permission changes carry +N/−N badges; a privileged
-  // flip is a single badge, not "false → true".
-  function _wnActionHtml(c) {
-    const type = c.change_type?.toUpperCase() ?? 'MODIFIED';
-    if (type === 'ADDED') {
-      const n = c.permission_count;
-      const badge = typeof n === 'number'
-        ? ` <span class="wn-badge ${n > 0 ? 'count' : 'zero'}">${n} ${n === 1 ? 'perm' : 'perms'}</span>`
-        : '';
-      return `<span class="wn-label-soft">new role</span>${badge}`;
+    // ── Utility ──────────────────────────────────────────────────────────
+    function esc(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
-    if (type === 'REMOVED') return `<span class="wn-label-soft">role removed</span>`;
-    switch (c.field) {
-      case 'permissions': {
-        const { added, removed } = _wnCounts(c);
-        const badges = [];
-        if (added)   badges.push(`<span class="wn-badge add">+${added}</span>`);
-        if (removed) badges.push(`<span class="wn-badge rem">−${removed}</span>`);
-        const b = badges.length ? `<span class="wn-badges">${badges.join('')}</span>` : '';
-        return `<span class="wn-label-soft">permissions</span> ${b}`;
+
+    // ── What's New panel ─────────────────────────────────────────────────
+    const CHANGELOG_URL = '/data/changelog.json';
+    const _WN_GLYPHS = { ADDED: '✦', REMOVED: '⊘', MODIFIED: '◆' };
+    const _WN_GLYPH_CLASS = { ADDED: 'added', REMOVED: 'removed', MODIFIED: 'modified' };
+    const _WN_PREVIEW = 5;
+    const _WN_PERM_CAP = 8;   // permissions shown per group before "+N more"
+    let _wnUid = 0;
+
+    // Accurate label for the change, derived from the field that actually
+    // changed — not a blanket "permissions updated".
+    // Permission add/remove counts: from the stored name arrays when present,
+    // otherwise parsed from the historical "N permissions added" detail string.
+    function _wnCounts(c) {
+      let added = c.added_permissions?.length ?? null;
+      let removed = c.removed_permissions?.length ?? null;
+      if (added === null && removed === null) {
+        const ma = (c.detail || '').match(/(\d+)\s+permissions?\s+added/);
+        const mr = (c.detail || '').match(/(\d+)\s+permissions?\s+removed/);
+        added = ma ? +ma[1] : 0;
+        removed = mr ? +mr[1] : 0;
       }
-      case 'description':  return `<span class="wn-label-soft">description updated</span>`;
-      case 'displayName':  return `<span class="wn-label-soft">renamed</span>`;
-      case 'isPrivileged': {
-        const nowPriv = c.new === true || /->\s*true/.test(c.detail || '');
-        return nowPriv
-          ? `<span class="wn-badge priv">now privileged</span>`
-          : `<span class="wn-badge unpriv">no longer privileged</span>`;
+      return { added: added || 0, removed: removed || 0 };
+    }
+
+    // Summary-row label. Permission changes carry +N/−N badges; a privileged
+    // flip is a single badge, not "false → true".
+    function _wnActionHtml(c) {
+      const type = c.change_type?.toUpperCase() ?? 'MODIFIED';
+      if (type === 'ADDED') {
+        const n = c.permission_count;
+        const badge = typeof n === 'number'
+          ? ` <span class="wn-badge ${n > 0 ? 'count' : 'zero'}">${n} ${n === 1 ? 'perm' : 'perms'}</span>`
+          : '';
+        return `<span class="wn-label-soft">new role</span>${badge}`;
       }
-      default: return `<span class="wn-label-soft">updated</span>`;
-    }
-  }
-
-  // Renders the NEW text only, with the added words highlighted (<ins>).
-  // Removed words are not shown — a struck-through old word inline reads as
-  // clutter; the reader just wants the current wording with what's new flagged.
-  // LCS over whitespace-preserving tokens decides which new tokens are additions.
-  function _wnDiffWords(oldS, newS) {
-    const tok = s => String(s).split(/(\s+)/);
-    const a = tok(oldS), b = tok(newS);
-    const n = a.length, m = b.length;
-    const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
-    for (let i = n - 1; i >= 0; i--)
-      for (let j = m - 1; j >= 0; j--)
-        dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
-    let i = 0, j = 0, out = '', ins = '';
-    const flush = () => { if (ins) { out += `<ins>${esc(ins)}</ins>`; ins = ''; } };
-    while (i < n && j < m) {
-      if (a[i] === b[j]) { flush(); out += esc(b[j]); i++; j++; }   // kept word
-      else if (dp[i + 1][j] >= dp[i][j + 1]) { i++; }               // removed word — emit nothing
-      else { ins += b[j++]; }                                       // added word
-    }
-    while (j < m) ins += b[j++];   // trailing additions
-    flush();
-    return out;
-  }
-
-  function _unquote(s) {
-    s = (s ?? '').trim();
-    if (s.length >= 2 && s[0] === '"' && s[s.length - 1] === '"') {
-      try { return JSON.parse(s); } catch { return s.slice(1, -1); }
-    }
-    return s;
-  }
-
-  // One permission section (Added / Removed) with a header + count, capping at
-  // _WN_PERM_CAP rows with a "+N more" toggle for the remainder.
-  function _wnPermSection(perms, cls, sign, title) {
-    if (!perms || !perms.length) return '';
-    const row  = p => `<div class="wn-perm ${cls}"><span class="wn-sign">${sign}</span>${esc(p)}</div>`;
-    const head = perms.slice(0, _WN_PERM_CAP).map(row).join('');
-    const rest = perms.slice(_WN_PERM_CAP);
-    let body = head;
-    if (rest.length) {
-      const id = `wnp-${_wnUid++}`;
-      body += `<div class="wn-perm-rest" id="${id}" hidden>${rest.map(row).join('')}</div>` +
-        `<button class="wn-more-btn" onclick="_wnMore('${id}', this)">+${rest.length} more</button>`;
-    }
-    return `<div class="wn-pgroup ${cls}"><div class="wn-phead ${cls}">${title} (${perms.length})</div>${body}</div>`;
-  }
-
-  // Inner detail HTML revealed when a row is expanded ('' = nothing to expand).
-  // Permission changes list the added (green) / removed (red) permissions;
-  // description/rename show a word-level diff; an isPrivileged flip explains the
-  // before/after and why it matters. Historical permission entries (counts only,
-  // no names) return '' and stay non-expandable.
-  function _wnDetailInner(c) {
-    // New role: lazy-load its description + permission list from /api/role on
-    // expand (same endpoint as role detail — always current, no per-role code).
-    if ((c.change_type?.toUpperCase()) === 'ADDED' && c.role_id) {
-      return `<div class="wn-lazy" data-role="${esc(c.role_id)}"></div>`;
-    }
-    if (c.field === 'permissions') {
-      return _wnPermSection(c.added_permissions, 'added', '+', 'Added') +
-             _wnPermSection(c.removed_permissions, 'removed', '−', 'Removed');
-    }
-    if (c.field === 'description' || c.field === 'displayName') {
-      let oldV = c.old, newV = c.new;
-      if (oldV === undefined && newV === undefined) {
-        const m = (c.detail || '').match(/changed:\s*([\s\S]+?)\s*->\s*([\s\S]+)$/);
-        if (m) { oldV = _unquote(m[1]); newV = _unquote(m[2]); }
+      if (type === 'REMOVED') return `<span class="wn-label-soft">role removed</span>`;
+      switch (c.field) {
+        case 'permissions': {
+          const { added, removed } = _wnCounts(c);
+          const badges = [];
+          if (added) badges.push(`<span class="wn-badge add">+${added}</span>`);
+          if (removed) badges.push(`<span class="wn-badge rem">−${removed}</span>`);
+          const b = badges.length ? `<span class="wn-badges">${badges.join('')}</span>` : '';
+          return `<span class="wn-label-soft">permissions</span> ${b}`;
+        }
+        case 'description': return `<span class="wn-label-soft">description updated</span>`;
+        case 'displayName': return `<span class="wn-label-soft">renamed</span>`;
+        case 'isPrivileged': {
+          const nowPriv = c.new === true || /->\s*true/.test(c.detail || '');
+          return nowPriv
+            ? `<span class="wn-badge priv">now privileged</span>`
+            : `<span class="wn-badge unpriv">no longer privileged</span>`;
+        }
+        default: return `<span class="wn-label-soft">updated</span>`;
       }
-      if (oldV === undefined && newV === undefined) return '';
-      return `<div class="wn-worddiff">${_wnDiffWords(String(oldV ?? ''), String(newV ?? ''))}</div>`;
     }
-    if (c.field === 'isPrivileged') {
-      let now = c.new, was = c.old;
-      if (typeof now !== 'boolean') {
-        const m = (c.detail || '').match(/:\s*(true|false)\s*->\s*(true|false)/);
-        if (m) { was = m[1] === 'true'; now = m[2] === 'true'; }
-      }
-      if (typeof now !== 'boolean') return '';
-      const fromTxt = was === false ? 'Not privileged' : was === true ? 'Privileged' : 'Unknown';
-      const toTxt   = now ? 'Privileged' : 'Not privileged';
-      const why = now
-        ? 'Microsoft now classifies this as a privileged role: it can perform security-sensitive directory operations, so it warrants tighter governance (e.g. PIM, time-bound activation, access reviews).'
-        : 'Microsoft no longer classifies this as a privileged role.';
-      const toCls = now ? ' is-priv' : '';
-      return `<div class="wn-privnote">` +
-        `<div class="wn-priv-row"><span class="wn-priv-tag">Was</span><span class="wn-priv-from">${esc(fromTxt)}</span></div>` +
-        `<div class="wn-priv-row"><span class="wn-priv-tag">Now</span><span class="wn-priv-to${toCls}">${esc(toTxt)}</span></div>` +
-        `<div class="wn-priv-why">${esc(why)}</div></div>`;
-    }
-    return '';
-  }
 
-  function _wnBuildEntries(items, startIdx, cutoff24h) {
-    return items.map((c, i) => {
-      const type   = c.change_type?.toUpperCase() ?? 'MODIFIED';
-      const glyph  = _WN_GLYPHS[type] ?? '•';
-      const gcls   = _WN_GLYPH_CLASS[type] ?? '';
-      const isFresh = c.date >= cutoff24h;
-      const fresh  = isFresh ? ' wn-fresh' : '';
-      const inner  = _wnDetailInner(c);
-      const exp    = inner !== '';
-      const tparts = [];
-      if (exp)     tparts.push('Show details');
-      if (isFresh) tparts.push('changed in the last 24h');
-      const titleAttr = tparts.length ? ` title="${tparts.join(' · ')}"` : '';
-      const handlers  = exp ? ' role="button" tabindex="0" aria-expanded="false" onclick="_wnToggle(this)" onkeydown="_wnKey(event,this)"' : '';
-      return `<div class="wn-item${exp ? ' wn-expandable' : ''}">` +
-        `<div class="whats-new-entry type-${gcls}${fresh}" data-idx="${startIdx + i}"${handlers}${titleAttr}>` +
+    // Renders the NEW text only, with the added words highlighted (<ins>).
+    // Removed words are not shown — a struck-through old word inline reads as
+    // clutter; the reader just wants the current wording with what's new flagged.
+    // LCS over whitespace-preserving tokens decides which new tokens are additions.
+    function _wnDiffWords(oldS, newS) {
+      const tok = s => String(s).split(/(\s+)/);
+      const a = tok(oldS), b = tok(newS);
+      const n = a.length, m = b.length;
+      const dp = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
+      for (let i = n - 1; i >= 0; i--)
+        for (let j = m - 1; j >= 0; j--)
+          dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      let i = 0, j = 0, out = '', ins = '';
+      const flush = () => { if (ins) { out += `<ins>${esc(ins)}</ins>`; ins = ''; } };
+      while (i < n && j < m) {
+        if (a[i] === b[j]) { flush(); out += esc(b[j]); i++; j++; }   // kept word
+        else if (dp[i + 1][j] >= dp[i][j + 1]) { i++; }               // removed word — emit nothing
+        else { ins += b[j++]; }                                       // added word
+      }
+      while (j < m) ins += b[j++];   // trailing additions
+      flush();
+      return out;
+    }
+
+    function _unquote(s) {
+      s = (s ?? '').trim();
+      if (s.length >= 2 && s[0] === '"' && s[s.length - 1] === '"') {
+        try { return JSON.parse(s); } catch { return s.slice(1, -1); }
+      }
+      return s;
+    }
+
+    // One permission section (Added / Removed) with a header + count, capping at
+    // _WN_PERM_CAP rows with a "+N more" toggle for the remainder.
+    function _wnPermSection(perms, cls, sign, title) {
+      if (!perms || !perms.length) return '';
+      const row = p => `<div class="wn-perm ${cls}"><span class="wn-sign">${sign}</span>${esc(p)}</div>`;
+      const head = perms.slice(0, _WN_PERM_CAP).map(row).join('');
+      const rest = perms.slice(_WN_PERM_CAP);
+      let body = head;
+      if (rest.length) {
+        const id = `wnp-${_wnUid++}`;
+        body += `<div class="wn-perm-rest" id="${id}" hidden>${rest.map(row).join('')}</div>` +
+          `<button class="wn-more-btn" onclick="_wnMore('${id}', this)">+${rest.length} more</button>`;
+      }
+      return `<div class="wn-pgroup ${cls}"><div class="wn-phead ${cls}">${title} (${perms.length})</div>${body}</div>`;
+    }
+
+    // Inner detail HTML revealed when a row is expanded ('' = nothing to expand).
+    // Permission changes list the added (green) / removed (red) permissions;
+    // description/rename show a word-level diff; an isPrivileged flip explains the
+    // before/after and why it matters. Historical permission entries (counts only,
+    // no names) return '' and stay non-expandable.
+    function _wnDetailInner(c) {
+      // New role: lazy-load its description + permission list from /api/role on
+      // expand (same endpoint as role detail — always current, no per-role code).
+      if ((c.change_type?.toUpperCase()) === 'ADDED' && c.role_id) {
+        return `<div class="wn-lazy" data-role="${esc(c.role_id)}"></div>`;
+      }
+      if (c.field === 'permissions') {
+        return _wnPermSection(c.added_permissions, 'added', '+', 'Added') +
+          _wnPermSection(c.removed_permissions, 'removed', '−', 'Removed');
+      }
+      if (c.field === 'description' || c.field === 'displayName') {
+        let oldV = c.old, newV = c.new;
+        if (oldV === undefined && newV === undefined) {
+          const m = (c.detail || '').match(/changed:\s*([\s\S]+?)\s*->\s*([\s\S]+)$/);
+          if (m) { oldV = _unquote(m[1]); newV = _unquote(m[2]); }
+        }
+        if (oldV === undefined && newV === undefined) return '';
+        return `<div class="wn-worddiff">${_wnDiffWords(String(oldV ?? ''), String(newV ?? ''))}</div>`;
+      }
+      if (c.field === 'isPrivileged') {
+        let now = c.new, was = c.old;
+        if (typeof now !== 'boolean') {
+          const m = (c.detail || '').match(/:\s*(true|false)\s*->\s*(true|false)/);
+          if (m) { was = m[1] === 'true'; now = m[2] === 'true'; }
+        }
+        if (typeof now !== 'boolean') return '';
+        const fromTxt = was === false ? 'Not privileged' : was === true ? 'Privileged' : 'Unknown';
+        const toTxt = now ? 'Privileged' : 'Not privileged';
+        const why = now
+          ? 'Microsoft now classifies this as a privileged role: it can perform security-sensitive directory operations, so it warrants tighter governance (e.g. PIM, time-bound activation, access reviews).'
+          : 'Microsoft no longer classifies this as a privileged role.';
+        const toCls = now ? ' is-priv' : '';
+        return `<div class="wn-privnote">` +
+          `<div class="wn-priv-row"><span class="wn-priv-tag">Was</span><span class="wn-priv-from">${esc(fromTxt)}</span></div>` +
+          `<div class="wn-priv-row"><span class="wn-priv-tag">Now</span><span class="wn-priv-to${toCls}">${esc(toTxt)}</span></div>` +
+          `<div class="wn-priv-why">${esc(why)}</div></div>`;
+      }
+      return '';
+    }
+
+    function _wnBuildEntries(items, startIdx, cutoff24h) {
+      return items.map((c, i) => {
+        const type = c.change_type?.toUpperCase() ?? 'MODIFIED';
+        const glyph = _WN_GLYPHS[type] ?? '•';
+        const gcls = _WN_GLYPH_CLASS[type] ?? '';
+        const isFresh = c.date >= cutoff24h;
+        const fresh = isFresh ? ' wn-fresh' : '';
+        const inner = _wnDetailInner(c);
+        const exp = inner !== '';
+        const tparts = [];
+        if (exp) tparts.push('Show details');
+        if (isFresh) tparts.push('changed in the last 24h');
+        const titleAttr = tparts.length ? ` title="${tparts.join(' · ')}"` : '';
+        const handlers = exp ? ' role="button" tabindex="0" aria-expanded="false" onclick="_wnToggle(this)" onkeydown="_wnKey(event,this)"' : '';
+        return `<div class="wn-item${exp ? ' wn-expandable' : ''}">` +
+          `<div class="whats-new-entry type-${gcls}${fresh}" data-idx="${startIdx + i}"${handlers}${titleAttr}>` +
           `<span class="wn-fresh-dot"${isFresh ? ' title="changed in the last 24h"' : ''}></span>` +
           `<span class="wn-glyph ${gcls}">${glyph}</span>` +
           `<span class="wn-name">${esc(c.role_name ?? '')}</span>` +
           `<span class="wn-action">${_wnActionHtml(c)}</span>` +
           `<span class="wn-date">${esc(c.date ?? '')}</span>` +
           (exp ? `<span class="wn-chev">▸</span>` : `<span class="wn-chev-spacer"></span>`) +
-        `</div>` +
-        (exp ? `<div class="wn-detail" hidden>${inner}</div>` : '') +
-        `</div>`;
-    }).join('');
-  }
-
-  // Expand/collapse a single row's detail. The summary row and its detail are
-  // siblings, so clicks inside the detail (e.g. "+N more") don't toggle it.
-  function _wnToggle(rowEl) {
-    const item = rowEl.closest('.wn-item');
-    if (!item) return;
-    const detail = item.querySelector('.wn-detail');
-    if (!detail) return;
-    const open = item.classList.toggle('wn-open');
-    detail.hidden = !open;
-    rowEl.setAttribute('aria-expanded', String(open));
-    // New-role rows lazy-load their permissions from /api/role on first open.
-    if (open) {
-      const lazy = detail.querySelector('.wn-lazy:not([data-loaded])');
-      if (lazy) {
-        lazy.setAttribute('data-loaded', '1');
-        _wnLoadRole(lazy, lazy.getAttribute('data-role'));
-      }
+          `</div>` +
+          (exp ? `<div class="wn-detail" hidden>${inner}</div>` : '') +
+          `</div>`;
+      }).join('');
     }
-  }
 
-  // Renders a new role's permission list (neutral) with a "+N more" cap.
-  function _wnPermList(perms) {
-    const row  = p => `<div class="wn-perm">${esc(p)}</div>`;
-    const head = perms.slice(0, _WN_PERM_CAP).map(row).join('');
-    const rest = perms.slice(_WN_PERM_CAP);
-    let body = `<div class="wn-phead">Permissions (${perms.length})</div>` + head;
-    if (rest.length) {
-      const id = `wnp-${_wnUid++}`;
-      body += `<div class="wn-perm-rest" id="${id}" hidden>${rest.map(row).join('')}</div>` +
-        `<button class="wn-more-btn" onclick="_wnMore('${id}', this)">+${rest.length} more</button>`;
-    }
-    return `<div class="wn-pgroup">${body}</div>`;
-  }
-
-  // Fetch a new role from the same endpoint role-detail uses, then show its
-  // description + permissions — or a clear note when it has none (workload
-  // roles like Purview's are governed outside Entra, so they carry 0 actions).
-  async function _wnLoadRole(container, roleId) {
-    container.innerHTML = `<div class="wn-role-note">Loading…</div>`;
-    try {
-      const res = await fetch(`${API}/api/role/${encodeURIComponent(roleId)}`);
-      if (!res.ok) throw new Error(String(res.status));
-      const role = await res.json();
-      const perms = role.permissions || [];
-      let html = '';
-      if (role.description) html += `<div class="wn-role-desc">${esc(role.description)}</div>`;
-      // Service-agnostic note: any role with zero Entra directory actions is a
-      // workload role governed in its own service (the description above names
-      // which). Don't hardcode a specific product here.
-      html += perms.length
-        ? _wnPermList(perms)
-        : `<div class="wn-role-note">No Entra directory permissions — this role grants no Entra directory actions; it's assigned and managed in its own service portal, not the Entra admin center.</div>`;
-      container.innerHTML = html;
-    } catch {
-      container.removeAttribute('data-loaded'); // allow retry on next open
-      container.innerHTML = `<div class="wn-role-note">Couldn't load permissions just now — try again.</div>`;
-    }
-  }
-
-  function _wnKey(e, rowEl) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); _wnToggle(rowEl); }
-  }
-
-  function _wnMore(id, btn) {
-    const el = document.getElementById(id);
-    if (el) el.hidden = false;
-    if (btn) btn.remove();
-  }
-
-  function _wnShowAllBtn(total) {
-    return `<div class="wn-show-all" id="wn-show-all-row">` +
-      `<button class="wn-show-all-btn" id="wn-show-all-btn" onclick="toggleWnShowAll()">` +
-      `Show all ${total} ↓</button></div>`;
-  }
-
-  function _wnShowLessBtn() {
-    return `<div class="wn-show-all" id="wn-show-all-row">` +
-      `<button class="wn-show-all-btn" id="wn-show-all-btn" onclick="toggleWnShowAll()">` +
-      `Show less ↑</button></div>`;
-  }
-
-  async function loadWhatsNew() {
-    try {
-      const res = await fetch(CHANGELOG_URL);
-      if (!res.ok) return;
-      const changelog = await res.json();
-      // Time-bound the NEW badge: only roles added within NEW_ROLE_DAYS count
-      // as new (previously every role ever added stayed "NEW" forever).
-      const newCutoff = new Date(Date.now() - NEW_ROLE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-      changelog.forEach(c => {
-        if (c.change_type?.toUpperCase() === 'ADDED' && c.role_id && c.date >= newCutoff) {
-          _newRoleIds.add(c.role_id);
+    // Expand/collapse a single row's detail. The summary row and its detail are
+    // siblings, so clicks inside the detail (e.g. "+N more") don't toggle it.
+    function _wnToggle(rowEl) {
+      const item = rowEl.closest('.wn-item');
+      if (!item) return;
+      const detail = item.querySelector('.wn-detail');
+      if (!detail) return;
+      const open = item.classList.toggle('wn-open');
+      detail.hidden = !open;
+      rowEl.setAttribute('aria-expanded', String(open));
+      // New-role rows lazy-load their permissions from /api/role on first open.
+      if (open) {
+        const lazy = detail.querySelector('.wn-lazy:not([data-loaded])');
+        if (lazy) {
+          lazy.setAttribute('data-loaded', '1');
+          _wnLoadRole(lazy, lazy.getAttribute('data-role'));
         }
-      });
-
-      const cutoff   = new Date(Date.now() - NEW_ROLE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-      const today    = new Date().toISOString().slice(0, 10);
-      const cutoff24h = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-      const recent   = changelog.filter(c => c.date >= cutoff).slice(0, 50);
-      if (!recent.length) return;
-
-      const todayItems = recent.filter(c => c.date >= today);
-      const subtitle   = `${recent.length} change${recent.length === 1 ? '' : 's'} in the last 30 days` +
-                         (todayItems.length ? ` · ${todayItems.length} today` : '');
-      document.getElementById('whats-new-subtitle').textContent = subtitle;
-
-      if (todayItems.length) {
-        const first   = todayItems[0];
-        const action  = first.change_type?.toLowerCase() === 'removed' ? 'removed' :
-                        first.change_type?.toLowerCase() === 'modified' ? 'updated' : 'added';
-        const storyEl = document.getElementById('stat-wn-story');
-        const storySep = document.getElementById('stat-wn-sep');
-        if (storyEl) { storyEl.textContent = `today: ${first.role_name ?? ''} ${action}`; storyEl.style.display = ''; }
-        if (storySep) storySep.style.display = '';
       }
+    }
 
-      const hasMore = recent.length > _WN_PREVIEW;
-      const body    = document.getElementById('whats-new-body');
-      body.innerHTML = _wnBuildEntries(recent.slice(0, _WN_PREVIEW), 0, cutoff24h) +
-        (hasMore ? _wnShowAllBtn(recent.length) : '');
-      body.dataset.full     = JSON.stringify(recent);
-      body.dataset.cutoff24h = cutoff24h;
-      body.dataset.expanded = '0';
+    // Renders a new role's permission list (neutral) with a "+N more" cap.
+    function _wnPermList(perms) {
+      const row = p => `<div class="wn-perm">${esc(p)}</div>`;
+      const head = perms.slice(0, _WN_PERM_CAP).map(row).join('');
+      const rest = perms.slice(_WN_PERM_CAP);
+      let body = `<div class="wn-phead">Permissions (${perms.length})</div>` + head;
+      if (rest.length) {
+        const id = `wnp-${_wnUid++}`;
+        body += `<div class="wn-perm-rest" id="${id}" hidden>${rest.map(row).join('')}</div>` +
+          `<button class="wn-more-btn" onclick="_wnMore('${id}', this)">+${rest.length} more</button>`;
+      }
+      return `<div class="wn-pgroup">${body}</div>`;
+    }
 
-      document.getElementById('whats-new-panel').classList.remove('hidden');
-    } catch { /* changelog not critical */ }
-  }
+    // Fetch a new role from the same endpoint role-detail uses, then show its
+    // description + permissions — or a clear note when it has none (workload
+    // roles like Purview's are governed outside Entra, so they carry 0 actions).
+    async function _wnLoadRole(container, roleId) {
+      container.innerHTML = `<div class="wn-role-note">Loading…</div>`;
+      try {
+        const res = await fetch(`${API}/api/role/${encodeURIComponent(roleId)}`);
+        if (!res.ok) throw new Error(String(res.status));
+        const role = await res.json();
+        const perms = role.permissions || [];
+        let html = '';
+        if (role.description) html += `<div class="wn-role-desc">${esc(role.description)}</div>`;
+        // Service-agnostic note: any role with zero Entra directory actions is a
+        // workload role governed in its own service (the description above names
+        // which). Don't hardcode a specific product here.
+        html += perms.length
+          ? _wnPermList(perms)
+          : `<div class="wn-role-note">No Entra directory permissions — this role grants no Entra directory actions; it's assigned and managed in its own service portal, not the Entra admin center.</div>`;
+        container.innerHTML = html;
+      } catch {
+        container.removeAttribute('data-loaded'); // allow retry on next open
+        container.innerHTML = `<div class="wn-role-note">Couldn't load permissions just now — try again.</div>`;
+      }
+    }
 
-  function toggleWnShowAll() {
-    const body = document.getElementById('whats-new-body');
-    if (!body) return;
-    const all      = JSON.parse(body.dataset.full ?? '[]');
-    const cutoff24h = body.dataset.cutoff24h ?? '';
-    const expanded  = body.dataset.expanded === '1';
+    function _wnKey(e, rowEl) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); _wnToggle(rowEl); }
+    }
 
-    function apply() {
-      if (expanded) {
-        body.innerHTML = _wnBuildEntries(all.slice(0, _WN_PREVIEW), 0, cutoff24h) +
-          (all.length > _WN_PREVIEW ? _wnShowAllBtn(all.length) : '');
+    function _wnMore(id, btn) {
+      const el = document.getElementById(id);
+      if (el) el.hidden = false;
+      if (btn) btn.remove();
+    }
+
+    function _wnShowAllBtn(total) {
+      return `<div class="wn-show-all" id="wn-show-all-row">` +
+        `<button class="wn-show-all-btn" id="wn-show-all-btn" onclick="toggleWnShowAll()">` +
+        `Show all ${total} ↓</button></div>`;
+    }
+
+    function _wnShowLessBtn() {
+      return `<div class="wn-show-all" id="wn-show-all-row">` +
+        `<button class="wn-show-all-btn" id="wn-show-all-btn" onclick="toggleWnShowAll()">` +
+        `Show less ↑</button></div>`;
+    }
+
+    async function loadWhatsNew() {
+      try {
+        const res = await fetch(CHANGELOG_URL);
+        if (!res.ok) return;
+        const changelog = await res.json();
+        // Time-bound the NEW badge: only roles added within NEW_ROLE_DAYS count
+        // as new (previously every role ever added stayed "NEW" forever).
+        const newCutoff = new Date(Date.now() - NEW_ROLE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        changelog.forEach(c => {
+          if (c.change_type?.toUpperCase() === 'ADDED' && c.role_id && c.date >= newCutoff) {
+            _newRoleIds.add(c.role_id);
+          }
+        });
+
+        const cutoff = new Date(Date.now() - NEW_ROLE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        const today = new Date().toISOString().slice(0, 10);
+        const cutoff24h = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        const recent = changelog.filter(c => c.date >= cutoff).slice(0, 50);
+        if (!recent.length) return;
+
+        const todayItems = recent.filter(c => c.date >= today);
+        const subtitle = `${recent.length} change${recent.length === 1 ? '' : 's'} in the last 30 days` +
+          (todayItems.length ? ` · ${todayItems.length} today` : '');
+        document.getElementById('whats-new-subtitle').textContent = subtitle;
+
+        if (todayItems.length) {
+          const first = todayItems[0];
+          const action = first.change_type?.toLowerCase() === 'removed' ? 'removed' :
+            first.change_type?.toLowerCase() === 'modified' ? 'updated' : 'added';
+          const storyEl = document.getElementById('stat-wn-story');
+          const storySep = document.getElementById('stat-wn-sep');
+          if (storyEl) { storyEl.textContent = `today: ${first.role_name ?? ''} ${action}`; storyEl.style.display = ''; }
+          if (storySep) storySep.style.display = '';
+        }
+
+        const hasMore = recent.length > _WN_PREVIEW;
+        const body = document.getElementById('whats-new-body');
+        body.innerHTML = _wnBuildEntries(recent.slice(0, _WN_PREVIEW), 0, cutoff24h) +
+          (hasMore ? _wnShowAllBtn(recent.length) : '');
+        body.dataset.full = JSON.stringify(recent);
+        body.dataset.cutoff24h = cutoff24h;
         body.dataset.expanded = '0';
+
+        document.getElementById('whats-new-panel').classList.remove('hidden');
+      } catch { /* changelog not critical */ }
+    }
+
+    function toggleWnShowAll() {
+      const body = document.getElementById('whats-new-body');
+      if (!body) return;
+      const all = JSON.parse(body.dataset.full ?? '[]');
+      const cutoff24h = body.dataset.cutoff24h ?? '';
+      const expanded = body.dataset.expanded === '1';
+
+      function apply() {
+        if (expanded) {
+          body.innerHTML = _wnBuildEntries(all.slice(0, _WN_PREVIEW), 0, cutoff24h) +
+            (all.length > _WN_PREVIEW ? _wnShowAllBtn(all.length) : '');
+          body.dataset.expanded = '0';
+        } else {
+          body.innerHTML = _wnBuildEntries(all, 0, cutoff24h) + _wnShowLessBtn();
+          body.dataset.expanded = '1';
+        }
+      }
+
+      if (document.startViewTransition) {
+        document.startViewTransition(apply);
       } else {
-        body.innerHTML = _wnBuildEntries(all, 0, cutoff24h) + _wnShowLessBtn();
-        body.dataset.expanded = '1';
+        apply();
       }
     }
 
-    if (document.startViewTransition) {
-      document.startViewTransition(apply);
-    } else {
-      apply();
+    function toggleWhatsNew() {
+      const body = document.getElementById('whats-new-body');
+      const chevron = document.getElementById('whats-new-chevron');
+      if (!body || !chevron) return;
+      const open = body.style.display !== 'none';
+      body.style.display = open ? 'none' : '';
+      chevron.classList.toggle('open', !open);
     }
-  }
 
-  function toggleWhatsNew() {
-    const body    = document.getElementById('whats-new-body');
-    const chevron = document.getElementById('whats-new-chevron');
-    if (!body || !chevron) return;
-    const open = body.style.display !== 'none';
-    body.style.display = open ? 'none' : '';
-    chevron.classList.toggle('open', !open);
-  }
+    // ── Sentrux quality strip ─────────────────────────────────────────────
+    async function loadQuality() {
+      try {
+        const res = await fetch(API + '/api/quality');
+        if (!res.ok) return;
+        const { metrics, has_data } = await res.json();
+        if (!has_data) return;
+        const score = metrics.quality ?? null;
+        if (score === null) return;
+        const pct = Math.min(100, (score / 10000) * 100).toFixed(1);
+        document.getElementById('sentrux-fill').style.width = pct + '%';
+        document.getElementById('sentrux-score').textContent = score.toLocaleString() + ' / 10 000';
+        document.getElementById('sentrux-bar').style.display = 'flex';
+      } catch (_) { }
+    }
 
-  // ── Sentrux quality strip ─────────────────────────────────────────────
-  async function loadQuality() {
-    try {
-      const res = await fetch(API + '/api/quality');
-      if (!res.ok) return;
-      const { metrics, has_data } = await res.json();
-      if (!has_data) return;
-      const score = metrics.quality ?? null;
-      if (score === null) return;
-      const pct = Math.min(100, (score / 10000) * 100).toFixed(1);
-      document.getElementById('sentrux-fill').style.width = pct + '%';
-      document.getElementById('sentrux-score').textContent = score.toLocaleString() + ' / 10 000';
-      document.getElementById('sentrux-bar').style.display = 'flex';
-    } catch (_) {}
-  }
-
-  // ── Boot ─────────────────────────────────────────────────────────────
-  (async () => {
-    await Promise.all([loadStatus(), loadRoles(), loadGitHubStats(), loadWhatsNew(), loadQuality()]);
-    setInterval(loadStatus, 60000);
-  })();
-</script>
+    // ── Boot ─────────────────────────────────────────────────────────────
+    (async () => {
+      await Promise.all([loadStatus(), loadRoles(), loadGitHubStats(), loadWhatsNew(), loadQuality()]);
+      setInterval(loadStatus, 60000);
+    })();
+  </script>
 </body>
+
 </html>
