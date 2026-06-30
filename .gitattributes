@@ -1,0 +1,9 @@
+# Normalize line endings: store everything as LF in the repo.
+# Fixes the CRLF working-tree noise on Windows and matches upstream.
+* text=auto eol=lf
+
+# Binary assets — never touch
+*.png binary
+*.svg text eol=lf
+*.ico binary
+*.jpg binary

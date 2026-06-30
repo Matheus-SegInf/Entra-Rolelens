@@ -6,6 +6,10 @@ __pycache__/
 *.pyo
 .env
 
+# Node / Azure App Service
+node_modules/
+npm-debug.log*
+
 # Internal documentation - not for public repo
 _internal/
 

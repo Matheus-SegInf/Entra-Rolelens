@@ -1692,7 +1692,7 @@
 <script>
   'use strict';
 
-  const API = 'https://rolelens-worker.russo-antonio76.workers.dev';
+  const API = ''; // same-origin: served by this Express server (Azure App Service)
   const GH_ISSUES = 'https://github.com/arusso-aboutcloud/entra-rolelens/issues';
 
   // ── State ────────────────────────────────────────────────────────────
@@ -2614,7 +2614,7 @@ Content-Type: application/json
   }
 
   // ── What's New panel ─────────────────────────────────────────────────
-  const CHANGELOG_URL = 'https://raw.githubusercontent.com/arusso-aboutcloud/entra-rolelens/master/data/changelog.json';
+  const CHANGELOG_URL = '/data/changelog.json';
   const _WN_GLYPHS      = { ADDED: '✦', REMOVED: '⊘', MODIFIED: '◆' };
   const _WN_GLYPH_CLASS = { ADDED: 'added', REMOVED: 'removed', MODIFIED: 'modified' };
   const _WN_PREVIEW     = 5;
